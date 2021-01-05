@@ -15,3 +15,16 @@ java -version
 ```
 java -jar jenkins.war --httpPort=9090 & 
 ```
+
+Note: One you go the message on your screen that : "Jenkins is Up & running"
+
+## Access Jenkins from your web browers: "172.31.0.100:9090"
+
+## Now unlock the Jenkins via initialpassword
+```
+This may also be found at: /root/.jenkins/secrets/initialAdminPassword
+```
+
+## Click on Install Suggested Plugins for further Setup. 
+
+## Now you can create login access : ( admin/admin ) 
