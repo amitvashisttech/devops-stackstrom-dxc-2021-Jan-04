@@ -5,7 +5,7 @@
 ### 2. Create Couple of Sample Jobs - By Copying Test-Job-1. 
 
 ### 3. Let Inter-chain them via Build Trigger or Post Build Actions. 
-![Optional Text](https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04/blob/main/Chain-Job.JPG)
+![Optional Text](../Images/Chain-Job.JPG)
 
 ### 4. Click on + Icon on Dashboard & Create new delivery PiplelineView. 
 ```
