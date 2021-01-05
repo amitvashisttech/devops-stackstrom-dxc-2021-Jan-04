@@ -10,7 +10,7 @@ Test-Job-1 -> Test-Job-2 -> Test-Job-3 --> {Test-Job-4, Test-Job-5} Test-Job-5 -
 
 ```  
 
-![Optional Text] (https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04/blob/main/Chain-Job.JPG)
+![Optional Text](https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04/blob/main/Chain-Job.JPG)
 
 ### 4. Clink on + Icon on Dashboard & Create new delivery PiplelineView. 
 ```
