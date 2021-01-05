@@ -7,7 +7,7 @@
 ### 3. Let Inter-chain them via Build Trigger or Post Build Actions. 
 ![Optional Text](https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04/blob/main/Chain-Job.JPG)
 
-### 4. Clink on + Icon on Dashboard & Create new delivery PiplelineView. 
+### 4. Click on + Icon on Dashboard & Create new delivery PiplelineView. 
 ```
 Name: MyView
 Component
