@@ -1,0 +1,186 @@
+    1  ls
+    2  git --version 
+    3  ls
+    4  mkdir myrepo
+    5  ls
+    6  cd myrepo/
+    7  ls
+    8  git init 
+    9  ls
+   10  echo  "Hello World" > Hello.txt
+   11  git add . 
+   12  ls
+   13  git commit -m "Initial Commit"
+   14  git log 
+   15  cd 
+   16  ls
+   17  cd myrepo/
+   18  ls
+   19  git config --global user.name "Amit Vashist"
+   20  git config --global user.email "amitvashist7@outlook.com"
+   21  git config --global core.editor vi
+   22  git config --global help.autocorrect 1
+   23  git config --global --list 
+   24  echo  "Hello World..git config --global --list !" >: Hello.txt
+   25  echo  "Hello World..echo  "Hello World..git config --global --list !" >: Hello.txt" >> Hello.txt
+   26  ls
+   27  rm -rf :
+   28  ls
+   29  cat Hello.txt 
+   30  git add . ; git commit -m "Hello Update - 2"
+   31  git log 
+   32  ls
+   33  git branch 
+   34  git branch UAT
+   35  git branch Stage
+   36  git branch Production 
+   37  git branch 
+   38  git log 
+   39  git checkout UAT
+   40  git branch 
+   41  git log
+   42  cd 
+   43  ls
+   44  ls -a 
+   45  cat .gitconfig 
+   46  vim .gitconfig 
+   47  ls
+   48  cd myrepo/
+   49  ls
+   50  git log
+   51  git branch 
+   52  git checkout Production
+   53  git branch 
+   54  git log
+   55  ls
+   56  cat .git/HEAD 
+   57  cat .git/refs/heads/Production 
+   58  cat .git/refs/heads/UAT 
+   59  cat .git/refs/heads/master 
+   60  git checkout stage
+   61  git branch 
+   62  cat .git/refs/heads/Stage 
+   63  echo  "Welcome to my Production Branch" > Prod.txt
+   64  git add . ; git commit -m "Prod.txt"
+   65  git branch 
+   66  cat .git/refs/heads/Production
+   67  cat .git/refs/heads/UAT 
+   68  cat .git/refs/heads/master 
+   69  cat .git/refs/heads/Stage 
+   70  git checkout master 
+   71  git log 
+   72  git checkout UAT
+   73  echo  "Welcome to my UAT Branch" > UAT.txt
+   74  git add . ; git commit -m "UAT.txt"
+   75  git log 
+   76  cat .git/refs/heads/UAT 
+   77  git checkout Stage
+   78  echo  "Welcome to my Stage Branch" > Stage.txt
+   79  git add . ; git commit -m "Stage.txt"
+   80  git log 
+   81  ls
+   82  git checkout master 
+   83  ls
+   84  git log 
+   85  git merge UAT 
+   86  ls
+   87  git log
+   88  git merge Stage
+   89  ls
+   90  git status 
+   91  git merge Stage
+   92  ls
+   93  git merge Production 
+   94  git log 
+   95  ls
+   96  cat .git/refs/heads/master 
+   97  git log 
+   98  git log --oneline
+   99  git log --oneline --graph
+  100  git log 
+  101  git log --oneline
+  102  git log --oneline --graph
+  103  git shortlog 
+  104  git shortlog -sne
+  105  ls
+  106  cd 
+  107  git clone https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git
+  108  ls
+  109  cd devops-stackstrom-dxc-2021-Jan-04/
+  110  ls
+  111  cd 01-GitDemo/
+  112  ls
+  113  git branch 
+  114  history 
+  115  ls
+  116  git branch UAT 
+  117  git branch 
+  118  git branch -r
+  119  git branch Production 
+  120  git branch 
+  121  git checkout UAT
+  122  ls
+  123  echo "Welcome to UAT" > UAT.txt
+  124  git add . ; git commit -m "UAT.txt"
+  125  ls
+  126  git checkout Production 
+  127  echo "Welcome to Prod" > Prod.txt
+  128  git add . ; git commit -m "Prod.txt"
+  129  ls
+  130  git push 
+  131  git push --set-upstream origin Production
+  132  ls
+  133  git branch 
+  134  git branch -r
+  135  git checkout UAT
+  136  ls
+  137  git status 
+  138  git push 
+  139  ls
+  140  git checkout main
+  141  ls
+  142  git merge UAT 
+  143  git merge Production 
+  144  ls
+  145  git push 
+  146  ls
+  147  echo  "Welcome to Git Demo" > Welcome.txt
+  148  git add . ; git commit -m "Welcome.txt"; git push 
+  149  ls
+  150  cd ..
+  151  ls
+  152  git pull
+  153  history | grep -i upstre
+  154  ls
+  155  ls -a 
+  156  git config --list 
+  157  history | grep -i push 
+  158  ls
+  159  cd 
+  160  ls
+  161  pwd
+  162  cd devops-stackstrom-dxc-2021-Jan-04/
+  163  ls
+  164  git tag
+  165  git tag release_2021_Jan_v1
+  166  git tag
+  167  git push --tags
+  168  ls
+  169  cd 01-GitDemo/
+  170  ls
+  171  git rm Prod.txt 
+  172  git rm UAT.txt 
+  173  git rm Welcome.txt 
+  174  ;s
+  175  ls
+  176  cd ..
+  177  ls
+  178  git add . ; git commit -m "Testing"; git push 
+  179  git pull 
+  180  git status 
+  181  git add . 
+  182  git add . ; git commit -m "Testing"; git push 
+  183  ls
+  184  cd 01-GitDemo/
+  185  ls
+  186  history > history_day1-Part2.txt 
