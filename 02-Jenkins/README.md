@@ -8,10 +8,10 @@ wget https://get.jenkins.io/war-stable/2.263.1/jenkins.war
 ## Jenkins Required Java JDK as dependency. 
 ```
 apt-get update; apt-get install default-jdk -y
-java --version 
+java -version 
 ```
 
-## Start the Jenkins on Port 8081
+## Start the Jenkins on Port 9090
 ```
-java -jar jenkins.war --httpPort=8081 & 
+java -jar jenkins.war --httpPort=9090 & 
 ```
