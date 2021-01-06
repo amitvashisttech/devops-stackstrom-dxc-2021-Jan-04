@@ -1,0 +1,16 @@
+    1  docker version 
+    2  docker images 
+    3  docker container ls 
+    4  docker ps 
+    5  docker run busybox echo "Welcome to the world of Docker Containers."
+    6  docker images 
+    7  docker run busybox echo "Welcome to the world of Docker Containers."
+    8  docker images 
+    9  docker ps -a 
+   10  docker run busybox echo "Hello World"
+   11  docker ps -a 
+   12  ls
+   13  cd 04-Docker/
+   14  ls
+   15  history 
+   16  history > History.txt
