@@ -1,6 +1,6 @@
 #!/bin/bash
 # Install docker from Docker-ce repository
-echo "[TASK 2] Install docker container engine"
+echo "[TASK 1] Install docker container engine"
 apt-get update
 apt-get install -y \
     apt-transport-https \
@@ -16,6 +16,6 @@ apt-get update && apt-get install -y docker-ce=$(apt-cache madison docker-ce | g
 
 
 # Enable docker service
-echo "[TASK 3] Enable and start docker service"
+echo "[TASK 2] Enable and start docker service"
 systemctl enable docker >/dev/null 2>&1
 systemctl start docker
