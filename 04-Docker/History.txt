@@ -72,3 +72,70 @@
    72  docker ps 
    73  docker ps -a
    74  history > History.txt 
+   75  cd ..
+   76  ls
+   77  git add .; git commit -m "04-Docker"; git push 
+   78  ls
+   79  docker ps 
+   80  docker ps -a
+   81  docker run -it centos:7 
+   82  docker ps 
+   83  docker inspect a81e96de7751
+   84  curl 172.17.0.2
+   85  docker attach a81e96de7751
+   86  curl 172.17.0.2
+   87  docker ps 
+   88  docker commit -p -m "Test" a81e96de7751 centos-test-httpd:v1 
+   89  docker ps 
+   90  docker images 
+   91  docker run -it centos-test-httpd:v1
+   92  docker ps 
+   93  docker inspect 8b469dc7a0c6
+   94  curl 172.17.0.2
+   95  curl 172.17.0.3
+   96  docker ps 
+   97  docker attach 8b469dc7a0c6
+   98  curl 172.17.0.3
+   99  docker attach 8b469dc7a0c6
+  100  docker commit -p -m "Test" 8b469dc7a0c6 centos-test-httpd:v2
+  101  ls
+  102  docker images 
+  103  docker run -itd centos-test-httpd:v2
+  104  docker ps 
+  105  docker inspect 4b290634f633
+  106  curl 172.17.0.3
+  107  curl 172.17.0.4
+  108  ls
+  109  docker kill $(docker ps -qa)
+  110  docker rm $(docker ps -qa)
+  111  docker ps -a 
+  112  docker images 
+  113  docker run -itd centos-test-httpd:v2
+  114  docker ps 
+  115  curl 172.17.0.2
+  116  curl 172.17.0.3
+  117  curl 172.17.0.4
+  118  curl 172.17.0.5
+  119  curl 172.17.0.6
+  120  curl 172.17.0.7
+  121  curl 172.17.0.8
+  122  ls
+  123  cd 04-Docker/
+  124  ls
+  125  history > History.txt 
+  126  ls
+  127  docker imags 
+  128  docker images 
+  129  docker tag 6bc5b7ba7d22 myapache:v1
+  130  docker images 
+  131  docker rm centos-test-httpd:v1
+  132  docker rmi centos-test-httpd:v1
+  133  docker images 
+  134  docker rmi centos-test-httpd:v2
+  135  docker images 
+  136  docker rmi myapache:v1
+  137  ls
+  138  docker images 
+  139  docker rename myapache:v1 myapache:v2
+  140  ls
+  141  history > History.txt 
