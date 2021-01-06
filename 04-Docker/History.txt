@@ -14,3 +14,61 @@
    14  ls
    15  history 
    16  history > History.txt
+   17  cd ..
+   18  ls
+   19  git add .; git commit -m "04-Docker"; git push 
+   20  ls
+   21  docker pull ubuntu:16.04
+   22  docker images 
+   23  docker run ubuntu:16.04 echo "hello World"
+   24  docker 
+   25  docker ps 
+   26  docker ps -a
+   27  docker run -it ubuntu:16.04
+   28  docker ps -a
+   29  docker run -it centos:7
+   30  docker ps 
+   31  docker ps -a
+   32  docker run -it centos:7
+   33  docker ps 
+   34  docker run -it centos:7
+   35  docker ps 
+   36  docker attach a1fb9e8f5a19
+   37  docker ps 
+   38  vi /etc/docker/key.json 
+   39  vi /etc/systemd/system/cd 
+   40  docker ps 
+   41  docker kill a1fb9e8f5a19
+   42  docker ps 
+   43  docker stop 015b6e5130fa
+   44  ls
+   45  docker ps 
+   46  docker kill f9c6bc26b0b6 
+   47  ls
+   48  docker ps 
+   49  docker attach 6d8ed2ce26b4
+   50  docker ps 
+   51  docker kill 6d8ed2ce26b4
+   52  docker ps 
+   53  docker ps -a
+   54  docker start 6d8ed2ce26b4
+   55  docker ps 
+   56  docker attach 6d8ed2ce26b4
+   57  docker kill 6d8ed2ce26b4
+   58  docker rm 6d8ed2ce26b4
+   59  docker ps -a 
+   60  docker ps -qa
+   61  docker rm $(docker ps -qa)
+   62  docker ps -a 
+   63  ls
+   64  cd 04-Docker/
+   65  ls
+   66  history 
+   67  history > History.txt 
+   68  docker run -it centos:7
+   69  docker ps 
+   70  docker rm  c9c62d518e3e
+   71  docker rm -f c9c62d518e3e
+   72  docker ps 
+   73  docker ps -a
+   74  history > History.txt 
