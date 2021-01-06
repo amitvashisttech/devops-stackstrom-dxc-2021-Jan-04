@@ -1,0 +1,27 @@
+node {
+    
+    stage('Git CheckOut') {
+    git branch: 'main', url: 'https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git'
+    }
+    
+    def project_path="03-App-Code/petclinic-code"
+    
+    dir(project_path) {
+    
+    stage('Maven Clean') {
+    sh 'mvn clean'
+    }
+    
+    stage('Maven Compile') {
+    sh 'mvn compile'
+    }
+    
+    stage('Maven Test') {
+    sh 'mvn test'
+    }
+    
+    stage('Maven Package') {
+    sh 'mvn package'
+    }
+    }
+}
