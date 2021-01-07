@@ -139,3 +139,87 @@
   139  docker rename myapache:v1 myapache:v2
   140  ls
   141  history > History.txt 
+  142  ls
+  143  cd ../
+  144  git add .; git commit -m "Docker History"; git push 
+  145  cd 
+  146  docker images 
+  147  cd /var/lib/docker/
+  148  ls
+  149  cd image/
+  150  ls
+  151  cd aufs/
+  152  ls
+  153  cd imagedb/
+  154  ls
+  155  cd content/
+  156  ls
+  157  cd sha256/
+  158  ls
+  159  cd ..
+  160  ls
+  161  cd ../../
+  162  ls
+  163  cd ../
+  164  ls
+  165  cd ../
+  166  ls
+  167  cd containers/
+  168  ls
+  169  docker ps 
+  170  cd 
+  171  ls
+  172  docker images
+  173  docker pull ubuntu
+  174  docker ps 
+  175  docker images
+  176  docker run -it ubuntu 
+  177  docker run -it ubuntu:16.04 
+  178  docker images
+  179  docker inspect f643c72bc252
+  180  ls
+  181  docker images 
+  182  docker pull  amitvashist7/k8s-tiny-web
+  183  docker images 
+  184  docker pull  amitvashist7/k8s-tiny-web:2
+  185  docker pull  amitvashist7/k8s-tiny-web:3
+  186  docker pull  amitvashist7/k8s-tiny-web:4
+  187  history 
+  188  docker images 
+  189  ls
+  190  docker ps 
+  191  docker ps -a
+  192  docker ps -aq
+  193  docker kill $(docker ps -aq)
+  194  docker rm $(docker ps -aq)
+  195  ls
+  196  docker ps -a 
+  197  docker images 
+  198  docker run -it ubuntu 
+  199  docker run -itd ubuntu 
+  200  docker ps 
+  201  docker run -it ubuntu 
+  202  docker ps 
+  203  docker run -itd --name web-node-1 ubuntu 
+  204  docker run -itd --name web-node-2 ubuntu 
+  205  docker run -itd --name db-node-2 ubuntu 
+  206  docker run -itd --name db-node-1 ubuntu 
+  207  docker ps 
+  208  docker inspect web-node-2
+  209  docker attach web-node-2
+  210  docker ps 
+  211  docker exec -it web-node-2 ip addr 
+  212  docker run -itd --name db-node-3 ubuntu:16.04 
+  213  docker ps 
+  214  docker exec -it db-node-3 cat /etc/os-release
+  215  docker exec -it db-node-1 cat /etc/os-release
+  216  docker ps 
+  217  docker kill db-node-3
+  218  docker ps 
+  219  docker rm db-node-3
+  220  ls
+  221  cd devops-stackstrom-dxc-2021-Jan-04/
+  222  ls
+  223  cd 04-Docker/
+  224  ls
+  225  history > History.txt 
