@@ -1,0 +1,51 @@
+  497  docker network ls 
+  498  docker kill $(docker ps -qa)
+  499  ip addr 
+  500  docker run -d --name web-py-app6 -P pythonwebapp:v2
+  501  docker rm $(docker ps -qa)
+  502  ip addr 
+  503  docker run -d --name web-py-app6 -P pythonwebapp:v2
+  504  ip addr 
+  505  ip netns 
+  506  cd  /var/lib/docker/network/
+  507  ls
+  508  cd ..
+  509  ls
+  510  cd 
+  511  cd /var/run/docker/
+  512  ls
+  513  cd netns/
+  514  ls
+  515  pwd
+  516  cd 
+  517  ln -s /var/run/docker/netns /var/run/network/
+  518  ip netns 
+  519  ln -s /var/run/docker/netns /var/run/netns
+  520  ip netns 
+  521  ip addr 
+  522  ip netns 
+  523  docker ps 
+  524  docker inspect cf642f38ea7c | grep -i 6e2ab0d9ed7c
+  525  docker inspect cf642f38ea7c 
+  526  ip netns 
+  527  ip netns exec 6e2ab0d9ed7c ip link 
+  528  ip netns exec 6e2ab0d9ed7c ip addr 
+  529  curl 172.17.0.2:8081
+  530  ip netns exec 6e2ab0d9ed7c ip route
+  531  ip addr 
+  532  docker run -d --name web-py-app1 -P pythonwebapp:v2
+  533  ip addr 
+  534  ip netns 
+  535  ip netns exec 538e381f113c ip route
+  536  ip netns exec 538e381f113c ip addr 
+  537  ip netns 
+  538  route -n 
+  539  ip addr 
+  540  ls
+  541  cd devops-stackstrom-dxc-2021-Jan-04/
+  542  ls
+  543  cd 04-Docker/
+  544  ls
+  545  cd 02-Dockerfiles/
+  546  ls
+  547  history > Network.txt
