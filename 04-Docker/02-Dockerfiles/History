@@ -1,0 +1,4 @@
+  287  vim Dockerfile
+  288  docker build -t myubuntu-apache:v1 .
+  290  docker images
+  291  docker run -d --name webtest-1 myubuntu-apache:v1

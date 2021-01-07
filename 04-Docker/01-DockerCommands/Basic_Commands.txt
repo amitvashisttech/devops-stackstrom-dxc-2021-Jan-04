@@ -1,0 +1,26 @@
+docker images 
+docker pull busybox
+docker ps 
+docker ps -a 
+docker run -it busybox 
+docker run -it busybox /bin/sh
+docker inspect 
+docker kill 
+docker stop 
+docker start
+docker rm 
+
+docker ps -l
+docker ps -q 
+docker ps -aq 
+
+docker kill $(docker ps -aq )
+docker rm $(docker ps -aq )
+
+docker run -itd --name Job1 busybox
+docker attach Job1
+
+docker exec -it Job1 cat /etc/os-release
+
+docker commit -p -m "MSG" <container-ID> <new-imagename>
+
