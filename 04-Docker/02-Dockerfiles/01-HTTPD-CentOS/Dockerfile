@@ -8,4 +8,4 @@ MAINTAINER Amit Vashist <amitvashist7@outlook.com>
 RUN yum install httpd -y
 
 # State the Service
-CMD ["/usr/sbin/httpd", "-k", "start"] 
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"] 
