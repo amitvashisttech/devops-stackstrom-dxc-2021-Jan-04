@@ -1,4 +1,490 @@
-  287  vim Dockerfile
-  288  docker build -t myubuntu-apache:v1 .
-  290  docker images
+    1  docker version 
+    2  docker images 
+    3  docker container ls 
+    4  docker ps 
+    5  docker run busybox echo "Welcome to the world of Docker Containers."
+    6  docker images 
+    7  docker run busybox echo "Welcome to the world of Docker Containers."
+    8  docker images 
+    9  docker ps -a 
+   10  docker run busybox echo "Hello World"
+   11  docker ps -a 
+   12  ls
+   13  cd 04-Docker/
+   14  ls
+   15  history 
+   16  history > History.txt
+   17  cd ..
+   18  ls
+   19  git add .; git commit -m "04-Docker"; git push 
+   20  ls
+   21  docker pull ubuntu:16.04
+   22  docker images 
+   23  docker run ubuntu:16.04 echo "hello World"
+   24  docker 
+   25  docker ps 
+   26  docker ps -a
+   27  docker run -it ubuntu:16.04
+   28  docker ps -a
+   29  docker run -it centos:7
+   30  docker ps 
+   31  docker ps -a
+   32  docker run -it centos:7
+   33  docker ps 
+   34  docker run -it centos:7
+   35  docker ps 
+   36  docker attach a1fb9e8f5a19
+   37  docker ps 
+   38  vi /etc/docker/key.json 
+   39  vi /etc/systemd/system/cd 
+   40  docker ps 
+   41  docker kill a1fb9e8f5a19
+   42  docker ps 
+   43  docker stop 015b6e5130fa
+   44  ls
+   45  docker ps 
+   46  docker kill f9c6bc26b0b6 
+   47  ls
+   48  docker ps 
+   49  docker attach 6d8ed2ce26b4
+   50  docker ps 
+   51  docker kill 6d8ed2ce26b4
+   52  docker ps 
+   53  docker ps -a
+   54  docker start 6d8ed2ce26b4
+   55  docker ps 
+   56  docker attach 6d8ed2ce26b4
+   57  docker kill 6d8ed2ce26b4
+   58  docker rm 6d8ed2ce26b4
+   59  docker ps -a 
+   60  docker ps -qa
+   61  docker rm $(docker ps -qa)
+   62  docker ps -a 
+   63  ls
+   64  cd 04-Docker/
+   65  ls
+   66  history 
+   67  history > History.txt 
+   68  docker run -it centos:7
+   69  docker ps 
+   70  docker rm  c9c62d518e3e
+   71  docker rm -f c9c62d518e3e
+   72  docker ps 
+   73  docker ps -a
+   74  history > History.txt 
+   75  cd ..
+   76  ls
+   77  git add .; git commit -m "04-Docker"; git push 
+   78  ls
+   79  docker ps 
+   80  docker ps -a
+   81  docker run -it centos:7 
+   82  docker ps 
+   83  docker inspect a81e96de7751
+   84  curl 172.17.0.2
+   85  docker attach a81e96de7751
+   86  curl 172.17.0.2
+   87  docker ps 
+   88  docker commit -p -m "Test" a81e96de7751 centos-test-httpd:v1 
+   89  docker ps 
+   90  docker images 
+   91  docker run -it centos-test-httpd:v1
+   92  docker ps 
+   93  docker inspect 8b469dc7a0c6
+   94  curl 172.17.0.2
+   95  curl 172.17.0.3
+   96  docker ps 
+   97  docker attach 8b469dc7a0c6
+   98  curl 172.17.0.3
+   99  docker attach 8b469dc7a0c6
+  100  docker commit -p -m "Test" 8b469dc7a0c6 centos-test-httpd:v2
+  101  ls
+  102  docker images 
+  103  docker run -itd centos-test-httpd:v2
+  104  docker ps 
+  105  docker inspect 4b290634f633
+  106  curl 172.17.0.3
+  107  curl 172.17.0.4
+  108  ls
+  109  docker kill $(docker ps -qa)
+  110  docker rm $(docker ps -qa)
+  111  docker ps -a 
+  112  docker images 
+  113  docker run -itd centos-test-httpd:v2
+  114  docker ps 
+  115  curl 172.17.0.2
+  116  curl 172.17.0.3
+  117  curl 172.17.0.4
+  118  curl 172.17.0.5
+  119  curl 172.17.0.6
+  120  curl 172.17.0.7
+  121  curl 172.17.0.8
+  122  ls
+  123  cd 04-Docker/
+  124  ls
+  125  history > History.txt 
+  126  ls
+  127  docker imags 
+  128  docker images 
+  129  docker tag 6bc5b7ba7d22 myapache:v1
+  130  docker images 
+  131  docker rm centos-test-httpd:v1
+  132  docker rmi centos-test-httpd:v1
+  133  docker images 
+  134  docker rmi centos-test-httpd:v2
+  135  docker images 
+  136  docker rmi myapache:v1
+  137  ls
+  138  docker images 
+  139  docker rename myapache:v1 myapache:v2
+  140  ls
+  141  history > History.txt 
+  142  ls
+  143  cd ../
+  144  git add .; git commit -m "Docker History"; git push 
+  145  cd 
+  146  docker images 
+  147  cd /var/lib/docker/
+  148  ls
+  149  cd image/
+  150  ls
+  151  cd aufs/
+  152  ls
+  153  cd imagedb/
+  154  ls
+  155  cd content/
+  156  ls
+  157  cd sha256/
+  158  ls
+  159  cd ..
+  160  ls
+  161  cd ../../
+  162  ls
+  163  cd ../
+  164  ls
+  165  cd ../
+  166  ls
+  167  cd containers/
+  168  ls
+  169  docker ps 
+  170  cd 
+  171  ls
+  172  docker images
+  173  docker pull ubuntu
+  174  docker ps 
+  175  docker images
+  176  docker run -it ubuntu 
+  177  docker run -it ubuntu:16.04 
+  178  docker images
+  179  docker inspect f643c72bc252
+  180  ls
+  181  docker images 
+  182  docker pull  amitvashist7/k8s-tiny-web
+  183  docker images 
+  184  docker pull  amitvashist7/k8s-tiny-web:2
+  185  docker pull  amitvashist7/k8s-tiny-web:3
+  186  docker pull  amitvashist7/k8s-tiny-web:4
+  187  history 
+  188  docker images 
+  189  ls
+  190  docker ps 
+  191  docker ps -a
+  192  docker ps -aq
+  193  docker kill $(docker ps -aq)
+  194  docker rm $(docker ps -aq)
+  195  ls
+  196  docker ps -a 
+  197  docker images 
+  198  docker run -it ubuntu 
+  199  docker run -itd ubuntu 
+  200  docker ps 
+  201  docker run -it ubuntu 
+  202  docker ps 
+  203  docker run -itd --name web-node-1 ubuntu 
+  204  docker run -itd --name web-node-2 ubuntu 
+  205  docker run -itd --name db-node-2 ubuntu 
+  206  docker run -itd --name db-node-1 ubuntu 
+  207  docker ps 
+  208  docker inspect web-node-2
+  209  docker attach web-node-2
+  210  docker ps 
+  211  docker exec -it web-node-2 ip addr 
+  212  docker run -itd --name db-node-3 ubuntu:16.04 
+  213  docker ps 
+  214  docker exec -it db-node-3 cat /etc/os-release
+  215  docker exec -it db-node-1 cat /etc/os-release
+  216  docker ps 
+  217  docker kill db-node-3
+  218  docker ps 
+  219  docker rm db-node-3
+  220  ls
+  221  cd devops-stackstrom-dxc-2021-Jan-04/
+  222  ls
+  223  cd 04-Docker/
+  224  ls
+  225  history > History.txt 
+  226  cd ..
+  227  ls
+  228  git add .; git commit -m "Docker History"; git push 
+  229  ls
+  230  cd 04-Docker/
+  231  ls
+  232  vim Basic_Commands.txt
+  233  ls
+  234  mkdir 02-Dockerfiles
+  235  mkdir 02-DockerCommands
+  236  ls
+  237  mv Basic_Commands.txt 02-Docker
+  238  mv Basic_Commands.txt 02-DockerCommands/
+  239  ls
+  240  mv 02-Docker 02-DockerCommands/Basic_Commands.txt
+  241  ls
+  242  mv 02-DockerCommands 01-DockerCommands
+  243  ls
+  244  cd 02-Dockerfiles/
+  245  ls
+  246  mkdir 01-Apache-ubuntu
+  247  ls
+  248  cd 01-Apache-ubuntu/
+  249  ls
+  250  vim Dockerfile
+  251  ls
+  252  cd ..
+  253  ls
+  254  mv 01-Apache-ubuntu 02-Apache-ubuntu/
+  255  cp -rf 02-Apache-ubuntu 01-HTTPD-CentOS
+  256  ls
+  257  cd 01-HTTPD-CentOS/
+  258  ls
+  259  vim Dockerfile 
+  260  ls
+  261  docker build -t mycentos-httpd:v1 . 
+  262  docker images 
+  263  docker run -d --name webtest-1 mycentos-httpd:v1
+  264  docker ps 
+  265  docker ps -a
+  266  docker log webtest-1
+  267  docker logs webtest-1
+  268  docker run -itd --name webtest-2 mycentos-httpd:v1
+  269  docker ps 
+  270  docker logs webtest-2
+  271  s
+  272  ls
+  273  vim Dockerfile 
+  274  docker build -t mycentos-httpd:v2 . 
+  275  docker run -itd --name webtest-3 mycentos-httpd:v2
+  276  docker ps 
+  277  docker run -d --name webtest-4 mycentos-httpd:v2
+  278  docker ps 
+  279  docker kill $( docker ps -qa)
+  280  docker rm $( docker ps -qa)
+  281  ls
+  282  cd ..
+  283  ls
+  284  cd 02-Apache-ubuntu/
+  285  ls
+  286  docker build -t myubuntu-apache:v1 . 
+  287  vim Dockerfile 
+  288  docker build -t myubuntu-apache:v1 . 
+  289  ls
+  290  docker images 
   291  docker run -d --name webtest-1 myubuntu-apache:v1
+  292  docker ps 
+  293  docker run -d --name webtest-2 myubuntu-apache:v1
+  294  docker ps 
+  295  docker inspect webtest-1
+  296  curl 172.17.0.2
+  297  curl 172.17.0.3
+  298  ls
+  299  cd ..
+  300  ls
+  301  history 
+  302  sl
+  303  ls
+  304  vim History 
+  305  ls
+  306  cd ../../
+  307  ls
+  308  git add .; git commit -m "Dockerfile History"; git push 
+  309  ls
+  310  docker images 
+  311  docker run -it mycentos-httpd:v1 
+  312  docker run -it mycentos-httpd:v1 /bin/bash
+  313  ls
+  314  cd 04-Docker/ls
+  315  ls
+  316  cd 04-Docker/ls
+  317  cd 04-Docker/
+  318  ls
+  319  cd 02-Dockerfiles/
+  320  ls
+  321  cd 01-HTTPD-CentOS/
+  322  ls
+  323  vim Dockerfile 
+  324  history 
+  325  docker build -t mycentos-httpd:v3 . 
+  326  docker images 
+  327  docker run -d mycentos-httpd:v3
+  328  vi Dockerfile 
+  329  docker build -t mycentos-httpd:v3 . 
+  330  docker run -d mycentos-httpd:v3
+  331  docker ps 
+  332  ks
+  333  ls
+  334  vim Dockerfile 
+  335  docker build -t mycentos-httpd:v3 . 
+  336  docker run -d mycentos-httpd:v3
+  337  docker ps 
+  338  ls
+  339  cat Dockerfile 
+  340  cat ../02-Apache-ubuntu/Dockerfile 
+  341  ls
+  342  cd ..
+  343  ls
+  344  cd ../../
+  345  ls
+  346  git add .; git commit -m "Dockerfile CentOS - HTTPD"; git push 
+  347  ls
+  348  cd 04-Docker/
+  349  ls
+  350  cd 02-Dockerfiles/
+  351  ls
+  352  cd 02-Apache-ubuntu/
+  353  ls
+  354  cat Dockerfile 
+  355  ls
+  356  vim Dockerfile 
+  357  docker images 
+  358  docker build -t myubuntu-apache:v3 . 
+  359  docker images 
+  360  docker build -t myubuntu-apache:v3 . 
+  361  ld
+  362  ls
+  363  vim Dockerfile 
+  364  ls
+  365  echo  "Hello World" > index.html
+  366  docker build -t myubuntu-apache:v3 . 
+  367  docker run -d --name test-01 myubuntu-apache:v3 
+  368  docker inspect test-01
+  369  curl 172.17.0.6
+  370  curl 172.17.0.6/abc.html
+  371  ls
+  372  s
+  373  ls
+  374  vim Dockerfile 
+  375  ls
+  376  vim index.html 
+  377  ls
+  378  docker images 
+  379  docker images | grep -i my* 
+  380  docker build -t mywebserver:v1 . 
+  381  ls
+  382  docker images 
+  383  docker run -d --name webserver-1 mywebserver:v1 
+  384  docker ps 
+  385  docker inspect webserver-1
+  386  curl 172.17.0.7
+  387  docker images 
+  388  docker ps 
+  389  ls
+  390  vim Dockerfile 
+  391  docker build -t mywebserver:v2 . 
+  392  docker run -d --name webserver-2 mywebserver:v2
+  393  docker ps 
+  394  docker inspect dda16e4b3b0f
+  395  curl 172.17.0.8:80
+  396  curl 172.17.0.8
+  397  vim Dockerfile 
+  398  docker build -t mywebserver:v3 . 
+  399  docker run -d --name webserver-3 mywebserver:v3
+  400  docker ps 
+  401  curl 172.17.0.9
+  402  curl 172.17.0.9:3306
+  403  ls
+  404  cat Dockerfile 
+  405  ls
+  406  cd ..
+  407  ls
+  408  cd ..
+  409  l
+  410  cd ...
+  411  ls
+  412  git add .; git commit -m "Dockerfile CentOS - HTTPD"; git push 
+  413  ls
+  414  cd 02-Dockerfiles/
+  415  ls
+  416  mkdir 03-PythonWebApp
+  417  ls
+  418  cd 03-PythonWebApp/
+  419  ls
+  420  vim req.txt
+  421  vim app.py 
+  422  ls
+  423  vim Dockerfile
+  424  ls
+  425  docker build -t pythonwebapp:v1 . 
+  426  docker images 
+  427  docker run -d --name webapp pythonwebapp:v1 
+  428  docker ps 
+  429  docker ps -a 
+  430  docker logs 0de03c0451ac
+  431  ls
+  432  vim app.py 
+  433  docker build -t pythonwebapp:v1 . 
+  434  docker run -d --name webapp pythonwebapp:v1 
+  435  docker run -d --name webapp2 pythonwebapp:v1 
+  436  docker ps 
+  437  docker inspect 561903bbdfaa
+  438  curl 172.17.0.10
+  439  curl 172.17.0.10:8081
+  440  curl 172.17.0.10:8081/info
+  441  cd ..
+  442  ls
+  443  cd ..
+  444  ls
+  445  cd ..
+  446  ls
+  447  git add .; git commit -m "PythonWebApp"; git push 
+  448  ls
+  449  cd 04-Docker/
+  450  ls
+  451  cd 02-Dockerfiles/
+  452  ls
+  453  cd 03-PythonWebApp/
+  454  ls
+  455  cat app.py 
+  456  ls
+  457  vim Dockerfile 
+  458  ls
+  459  docker build -t pythonwebapp:v1 . 
+  460  docker images 
+  461  docker run -d --name web-py-app1 pythonwebapp:v1 
+  462  docker ps 
+  463  vim Dockerfile 
+  464  docker build -t pythonwebapp:v2 . 
+  465  ls
+  466  docker images 
+  467  docker inspect 00d2309a66e2
+  468  docker run -d --name web-py-app2 pythonwebapp:v2
+  469  docker ps 
+  470  docker run -d --name test-1 -p 80:80 mywebserver:v2
+  471  docker ps 
+  472  docker run -d --name web-py-app3 -p 8081:8081 pythonwebapp:v2
+  473  docker ps 
+  474  docker run -d --name test-2 -p 8088:80 -p 8089:3306 mywebserver:v3
+  475  docker ps 
+  476  docker run -d --name test-3 -P mywebserver:v3
+  477  docker ps 
+  478  docker run -d --name web-py-app3 -P pythonwebapp:v2
+  479  docker run -d --name web-py-app5 -P pythonwebapp:v2
+  480  docker ps 
+  481  docker stop web-py-app5
+  482  docker ps 
+  483  docker run -d --name web-py-app6 -P pythonwebapp:v2
+  484  docker ps 
+  485  docker start web-py-app5
+  486  docker ps 
+  487  ls
+  488  cd ..
+  489  ls
+  490  history > History 
