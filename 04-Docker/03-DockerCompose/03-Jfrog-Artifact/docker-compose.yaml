@@ -1,3 +1,6 @@
+# Please make sure you run the following permission command: 
+# chmod 777 -R /data/artifactory
+
 version: '3'
 services:
   artifactory:
