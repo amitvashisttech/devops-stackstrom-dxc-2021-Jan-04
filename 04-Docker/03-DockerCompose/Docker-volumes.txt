@@ -1,0 +1,50 @@
+   92  docker run -it --name test-1 busybox 
+   93  ls
+   94  docker ps -a 
+   95  docker start 39610d23729b
+   96  docker attach 39610d23729b
+   97  ls
+   98  docker rm 39610d23729b
+   99  docker ps -a 
+  100  ls
+  101  docker volume ls 
+  102  docker run -it --name test-1 -v /var/www/html/ busybox 
+  103  docker ps 
+  104  docker inspect test-1
+  105  docker volume ls 
+  106  docker volume inspect 9ea2744a9e586b3e1b474494f8c8b833c6ad92fd36dac356f1ee49eed7463710
+  107  docker attach test-1
+  108  docker rm test-1
+  109  docker ps -a 
+  110  docker volume ls 
+  111  history 
+  112  pwd
+  113  docker run -it --name test-2 -v /root/devops-stackstrom-dxc-2021-Jan-04/04-Docker/03-DockerCompose:/var/www/html/ busybox
+  114  docker run -it --name test-3 -v /root/devops-stackstrom-dxc-2021-Jan-04/04-Docker/03-DockerCompose:/var/www/html/:ro busybox
+  115  docker attach test-2
+  116  ls
+  117  docker volume ls 
+  118  docker run -it --name test-4 --mount source=9ea2744a9e586b3e1b474494f8c8b833c6ad92fd36dac356f1ee49eed7463710,target=/var/www/html/ busybox
+  119  docker run -it --name test-4 -v source=9ea2744a9e586b3e1b474494f8c8b833c6ad92fd36dac356f1ee49eed7463710,target=/var/www/html/ busybox
+  120  docker run --help
+  121  docker run --volume --help
+  122  docker version 
+  123  docker run -it --name test-4 -v 9ea2744a9e586b3e1b474494f8c8b833c6ad92fd36dac356f1ee49eed7463710:/var/www/html/ busybox
+  124  docker run -it --name test-5 -v 9ea2744a9e586b3e1b474494f8c8b833c6ad92fd36dac356f1ee49eed7463710:/var/www/html/:ro busybox
+  125  docker volume ls 
+  126  docker volume create myvol
+  127  docker volume ls 
+  128  docker run -it --name test-6 -v myvol:/var/www/html/:ro busybox
+  129  docker run -it --name test-7 -v myvol:/var/www/html/ busybox
+  130  docker exec -it test-6 cat /var/www/html/hostname.txt
+  131  ls
+  132  docker ps 
+  133  docker rm -f $(docker ps -qa)  
+  134  docker volume ls 
+  135  docker volume ls -q
+  136  docker rm $(docker volume ls -q)
+  137  docker volume ls -q
+  138  docker volume rm $(docker volume ls -q)
+  139  docker volume ls -q
+  140  ls
+  141  history > Docker-volumes.txt
