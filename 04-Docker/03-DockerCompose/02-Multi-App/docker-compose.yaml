@@ -1,0 +1,15 @@
+nginx:
+  image: nginx:latest
+  ports:
+    - '81:80'
+
+mywebserver:
+  image: mywebserver:v3
+  ports:
+    - '8091:80'
+
+
+pythonwebapp:
+  image: pythonwebapp:v2
+  ports:
+    - '8092:8081'
