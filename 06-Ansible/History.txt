@@ -1,0 +1,50 @@
+  252  apt-get install ansible -y 
+  253  ls
+  254  ansible --version 
+  255  ls
+  256  history > History.txt
+  257  ls
+  258  mkdir 01-Inventory
+  259  ls
+  260  cd 01-Inventory/
+  261  ls
+  262  vim inventory
+  263  ls
+  264  ping 172.31.0.100
+  265  ping 172.31.0.101
+  266  ansible 172.31.0.101 -i inventory -u vagrant -m ping -k 
+  267  apt-get install sshpass -y 
+  268  ansible 172.31.0.101 -i inventory -u vagrant -m ping -k 
+  269  ls -ltr  /root/.ssh/
+  270  ssh vagrant@172.31.0.101
+  271  ls -ltr  /root/.ssh/
+  272  cat   /root/.ssh/known_hosts 
+  273  ssh vagrant@172.31.0.101
+  274  ansible 172.31.0.101 -i inventory -u vagrant -m ping -k 
+  275  cat inventory 
+  276  ansible all -i inventory -u vagrant -m ping -k 
+  277  ssh vagrant@172.31.0.100
+  278  vim /etc/ssh/sshd_config 
+  279  service sshd restart
+  280  ansible all -i inventory -u vagrant -m ping -k 
+  281  ansible-doc -l 
+  282  ansible-doc command
+  283  ansible all -i inventory -u vagrant -m command -a 'hostname' -k 
+  284  hostname
+  285  df -h 
+  286  ansible all -i inventory -u vagrant -m command -a 'df -h' -k 
+  287  ansible all -i inventory -u vagrant -m command -a 'df -h' 
+  288  exit
+  289  cd - 
+  290  cd ~/devops-stackstrom-dxc-2021-Jan-04/06-Ansible/01-Inventory
+  291  ls
+  292  ansible all -i inventory -u vagrant -m command -a 'df -h'
+  293  ansible all -i inventory -u vagrant -m command -a 'arch'
+  294  ansible all -i inventory -u vagrant -m command -a 'uname -a'
+  295  ansible all -i inventory -u vagrant -m command -a 'date'
+  296  ls
+  297  cd ..
+  298  ls
+  299  history 
+  300  ls
+  301  history >> History.txt 
