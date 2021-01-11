@@ -1,0 +1,37 @@
+node {
+
+// Get Artifactory Details. 
+    
+    def server = Artifactory.server "01"
+    def buildInfo = Artifactory.newBuildInfo()
+
+// Project Path
+   
+    def project_path="Download"
+    
+    stage('Git CheckOut') {
+    git branch: 'stage', url: 'https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git'
+    }
+    
+    
+    dir(project_path) {
+    
+    stage('Build Managment') {
+       def downloadSpec = """{ 
+           "files": [
+          {
+            "pattern": "petclinic-war/*.war",
+            "target" : "files"
+          }
+          ]
+          }"""
+          server.download spec: downloadSpec
+
+    }
+
+    stage('Deployment - Stage'){
+      deploy adapters: [tomcat8(credentialsId: '01', path: '', url: 'http://172.31.0.101:8080/')], contextPath: 'petclinic', onFailure: false, war: 'files/petclinic.war'
+    
+    }
+  }
+}
