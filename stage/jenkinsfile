@@ -21,7 +21,7 @@ node {
            "files": [
           {
             "pattern": "petclinic-war/*.war",
-            "target" : "files"
+            "target" : "files/"
           }
           ]
           }"""
