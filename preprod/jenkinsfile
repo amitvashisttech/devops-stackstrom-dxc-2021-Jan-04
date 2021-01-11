@@ -1,0 +1,59 @@
+node {
+
+// Get Artifactory Details. 
+    
+    def server = Artifactory.server "01"
+    def buildInfo = Artifactory.newBuildInfo()
+
+// Project Path
+   
+    def project_path="petclinic-code"
+    
+    stage('Git CheckOut') {
+    git branch: 'preprod', url: 'https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git'
+    }
+    
+    
+    dir(project_path) {
+    
+    stage('Maven Clean') {
+    sh 'mvn clean'
+    }
+    
+    stage('Maven Compile') {
+    sh 'mvn compile'
+    }
+    
+    stage('Maven Test') {
+    sh 'mvn test'
+    }
+    
+    stage('Maven Package') {
+    sh 'mvn package'
+    }
+    
+    stage('Build Managment') {
+       def uploadSpec = """{ 
+           "files": [
+          {
+            "pattern": "**/*.war",
+            "target" : "petclinic-war"
+          }
+          ]
+          }"""
+          server.upload spec: uploadSpec
+
+    }
+
+
+    stage('Publish Build Info') {
+        server.publishBuildInfo buildInfo
+
+    }
+
+    stage('Deployment - PreProd'){
+      sh 'docker-compose up -d --build'
+    
+    }
+  }
+}
