@@ -18,3 +18,10 @@ apt-get update ; apt-get install default-jdk -y
 cd /opt/tomcat/bin/
 ./catalina.sh start
 ```
+
+## Copy the User & Context file in respective locations
+```
+cp -rf tomcat-users.xml /opt/tomcat/conf/tomcat-users.xml
+cp -rf context.xml /opt/tomcat/webapps/manager/META-INF/context.xml
+```
+
