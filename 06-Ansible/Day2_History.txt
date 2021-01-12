@@ -1,0 +1,371 @@
+    1  ls
+    2  curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    3  chmod +x /usr/local/bin/docker-compose
+    4  docker-compose version
+    5  ls
+    6  cd 03-DockerCompose/
+    7  ls
+    8  mkdir 01-Nginx-App
+    9  ls
+   10  cd 01-Nginx-App/
+   11  ls
+   12  vim docker-compose.yaml
+   13  ls
+   14  docker-compose up -d 
+   15  docker-compose ps
+   16  ls
+   17  cd ..
+   18  ls
+   19  cp -rf 01-Nginx-App 02-Multi-App
+   20  ls
+   21  cd 02-Multi-App/
+   22  ls
+   23  docker images 
+   24  vim docker-compose.yaml 
+   25  ls
+   26  docker-compose up -d 
+   27  ls
+   28  docker ps -a 
+   29  docker rm -f $(docker ps -aq) 
+   30  docker-compose up -d 
+   31  docker-compose ps 
+   32  docker ps 
+   33  vim docker-compose.yaml 
+   34  docker-compose up -d 
+   35  docker-compose ps
+   36  vim docker-compose.yaml 
+   37  docker-compose up -d 
+   38  ls
+   39  cd ..
+   40  ls
+   41  cd ..
+   42  ls
+   43  cd ..
+   44  ls
+   45  cd - 
+   46  ls
+   47  cd 03-DockerCompose/
+   48  ls
+   49  dc 02-Multi-App/
+   50  cd 02-Multi-App/
+   51  ls
+   52  docker-compose status 
+   53  docker-compose stop 
+   54  docker-compose rm
+   55  cd ../../
+   56  ls
+   57  cd ..
+   58  ls
+   59  git add . ; git commit -m "03-DockerCompose"; git push 
+   60  ls
+   61  history 
+   62  ls
+   63  cd ls
+   64  ls
+   65  cd 04-Docker/
+   66  ls
+   67  cd 03-DockerCompose/
+   68  ls
+   69  history > Docker-Compose-History.txt
+   70  cd ../../
+   71  git add . ; git commit -m "03-DockerCompose"; git push 
+   72  ls
+   73  cd 04-Docker/ls
+   74  cd 04-Docker/
+   75  l
+   76  ll
+   77  cd 03-DockerCompose/
+   78  ls
+   79  vim 02-Multi-App/
+   80  vim 02-Multi-App/docker-compose.yaml 
+   81  ls
+   82  cd 02-Multi-App/
+   83  ls
+   84  docker-compose up -d 
+   85  docker-compose ps 
+   86  vim docker-compose.yaml 
+   87  ls
+   88  cd ..
+   89  ls
+   90  df -h 
+   91  ls
+   92  docker run -it --name test-1 busybox 
+   93  ls
+   94  docker ps -a 
+   95  docker start 39610d23729b
+   96  docker attach 39610d23729b
+   97  ls
+   98  docker rm 39610d23729b
+   99  docker ps -a 
+  100  ls
+  101  docker volume ls 
+  102  docker run -it --name test-1 -v /var/www/html/ busybox 
+  103  docker ps 
+  104  docker inspect test-1
+  105  docker volume ls 
+  106  docker volume inspect 9ea2744a9e586b3e1b474494f8c8b833c6ad92fd36dac356f1ee49eed7463710
+  107  docker attach test-1
+  108  docker rm test-1
+  109  docker ps -a 
+  110  docker volume ls 
+  111  history 
+  112  pwd
+  113  docker run -it --name test-2 -v /root/devops-stackstrom-dxc-2021-Jan-04/04-Docker/03-DockerCompose:/var/www/html/ busybox
+  114  docker run -it --name test-3 -v /root/devops-stackstrom-dxc-2021-Jan-04/04-Docker/03-DockerCompose:/var/www/html/:ro busybox
+  115  docker attach test-2
+  116  ls
+  117  docker volume ls 
+  118  docker run -it --name test-4 --mount source=9ea2744a9e586b3e1b474494f8c8b833c6ad92fd36dac356f1ee49eed7463710,target=/var/www/html/ busybox
+  119  docker run -it --name test-4 -v source=9ea2744a9e586b3e1b474494f8c8b833c6ad92fd36dac356f1ee49eed7463710,target=/var/www/html/ busybox
+  120  docker run --help
+  121  docker run --volume --help
+  122  docker version 
+  123  docker run -it --name test-4 -v 9ea2744a9e586b3e1b474494f8c8b833c6ad92fd36dac356f1ee49eed7463710:/var/www/html/ busybox
+  124  docker run -it --name test-5 -v 9ea2744a9e586b3e1b474494f8c8b833c6ad92fd36dac356f1ee49eed7463710:/var/www/html/:ro busybox
+  125  docker volume ls 
+  126  docker volume create myvol
+  127  docker volume ls 
+  128  docker run -it --name test-6 -v myvol:/var/www/html/:ro busybox
+  129  docker run -it --name test-7 -v myvol:/var/www/html/ busybox
+  130  docker exec -it test-6 cat /var/www/html/hostname.txt
+  131  ls
+  132  docker ps 
+  133  docker rm -f $(docker ps -qa)  
+  134  docker volume ls 
+  135  docker volume ls -q
+  136  docker rm $(docker volume ls -q)
+  137  docker volume ls -q
+  138  docker volume rm $(docker volume ls -q)
+  139  docker volume ls -q
+  140  ls
+  141  history > Docker-volumes.txt
+  142  ls
+  143  vim Docker-volumes.txt 
+  144  ls
+  145  cd ..ls
+  146  cd ..
+  147  ls
+  148  cd ..
+  149  ls
+  150  git add . ; git commit -m "Volumes"; git push 
+  151  ls
+  152  git pull 
+  153  ls
+  154  cd 04-Docker/
+  155  ls
+  156  docker ps -a 
+  157  ls
+  158  cd 03-DockerCompose/
+  159  ls
+  160  cd 03-Jfrog-Artifact/
+  161  ls
+  162  vim docker-compose.yaml 
+  163  ls
+  164  docker-compose up -d 
+  165  docker-compose ps
+  166  docker ps 
+  167  docker log e764e5d3e94c
+  168  docker logs e764e5d3e94c
+  169  ls
+  170  cat docker-compose.yaml 
+  171  ls -ltr /data/artifactory
+  172  ls -ld /data/artifactory
+  173  docker logs e764e5d3e94c
+  174  ls
+  175  chmod 777 -R /data/artifactory
+  176  docker-compose ps
+  177  docker logs e764e5d3e94c
+  178  chown artifactory.artifactory /data/artifactory
+  179  chown artifactory:artifactory /data/artifactory
+  180  docker logs e764e5d3e94c
+  181  docker-compose ps
+  182  docker ps 
+  183  ls
+  184  cd ..
+  185  ls
+  186  history 
+  187  ls
+  188  vim 03-Jfrog-Artifact/docker-compose.yaml 
+  189  ls
+  190  cd ../../
+  191  ls
+  192  git add . ; git commit -m "03-Jfrog-Artifact"; git push 
+  193  ls
+  194  cd 04-Docker/
+  195  ls
+  196  cd 03-DockerCompose/
+  197  ls
+  198  cd 04-SonarQube/
+  199  ls
+  200  docker-compose up -d 
+  201  docker ps 
+  202  free -m 
+  203  exit
+  204  ls
+  205  mkdir 02-Jenkins 
+  206  ls
+  207  cd 02-Jenkins/
+  208  ls
+  209  vim README.md
+  210  ll
+  211  cd ; wget https://get.jenkins.io/war-stable/2.263.1/jenkins.war 
+  212  ping google.com
+  213  cd ; wget https://get.jenkins.io/war-stable/2.263.1/jenkins.war 
+  214  apt-get install default-jdk -y 
+  215  java -version 
+  216  ls
+  217  rm jenkins.war.1
+  218  ls
+  219  java -jar jenkins.war --httpPort=9090 & 
+  220  docker images 
+  221  ls
+  222  cd /var/lib/docker/
+  223  ls
+  224  cd volumes/
+  225  ls
+  226  cd 9ea2744a9e586b3e1b474494f8c8b833c6ad92fd36dac356f1ee49eed7463710/
+  227  ls
+  228  cd _data/
+  229  ls
+  230  cat amitvashist7/Hello.txt 
+  231  cd 
+  232  cd - 
+  233  ls
+  234  cat amitvashist7/Hello.txt 
+  235  cd 
+  236  ls
+  237  cd devops-stackstrom-dxc-2021-Jan-04/
+  238  ls
+  239  cd 04-Docker/
+  240  ls
+  241  cd 03-DockerCompose/
+  242  ls
+  243  cd 02-Multi-App/
+  244  ls
+  245  vim docker-compose.yaml 
+  246  docker volume ls 
+  247  cat docker-compose.yaml 
+  248  ls
+  249  ls -ltr 06-Ansible
+  250  cd 06-Ansible/
+  251  l
+  252  apt-get install ansible -y 
+  253  ls
+  254  ansible --version 
+  255  ls
+  256  history > History.txt
+  257  ls
+  258  mkdir 01-Inventory
+  259  ls
+  260  cd 01-Inventory/
+  261  ls
+  262  vim inventory
+  263  ls
+  264  ping 172.31.0.100
+  265  ping 172.31.0.101
+  266  ansible 172.31.0.101 -i inventory -u vagrant -m ping -k 
+  267  apt-get install sshpass -y 
+  268  ansible 172.31.0.101 -i inventory -u vagrant -m ping -k 
+  269  ls -ltr  /root/.ssh/
+  270  ssh vagrant@172.31.0.101
+  271  ls -ltr  /root/.ssh/
+  272  cat   /root/.ssh/known_hosts 
+  273  ssh vagrant@172.31.0.101
+  274  ansible 172.31.0.101 -i inventory -u vagrant -m ping -k 
+  275  cat inventory 
+  276  ansible all -i inventory -u vagrant -m ping -k 
+  277  ssh vagrant@172.31.0.100
+  278  vim /etc/ssh/sshd_config 
+  279  service sshd restart
+  280  ansible all -i inventory -u vagrant -m ping -k 
+  281  ansible-doc -l 
+  282  ansible-doc command
+  283  ansible all -i inventory -u vagrant -m command -a 'hostname' -k 
+  284  hostname
+  285  df -h 
+  286  ansible all -i inventory -u vagrant -m command -a 'df -h' -k 
+  287  ansible all -i inventory -u vagrant -m command -a 'df -h' 
+  288  exit
+  289  cd - 
+  290  cd ~/devops-stackstrom-dxc-2021-Jan-04/06-Ansible/01-Inventory
+  291  ls
+  292  ansible all -i inventory -u vagrant -m command -a 'df -h'
+  293  ansible all -i inventory -u vagrant -m command -a 'arch'
+  294  ansible all -i inventory -u vagrant -m command -a 'uname -a'
+  295  ansible all -i inventory -u vagrant -m command -a 'date'
+  296  ls
+  297  cd ..
+  298  ls
+  299  history 
+  300  ls
+  301  history >> History.txt 
+  302  vim History.txt 
+  303  ls
+  304  cd ..
+  305  ls
+  306  git add . ; git commit -m "06-Ansible"; git push 
+  307  ls
+  308  ssh vagrant@172.31.0.102
+  309  ls
+  310  cd 06-Ansible/
+  311  ls
+  312  cd 01-Inventory/
+  313  ls
+  314  history 
+  315  ls
+  316  vim inventory 
+  317  ls
+  318  ansible all -i inventory -u vagrant -m command -a 'uname -a'
+  319  ansible all -i inventory -u vagrant -m command -a 'uname -a' -k 
+  320  ansible all -i inventory -u vagrant -m command -a 'arch' -k 
+  321  ansible all -i inventory -u vagrant -m command -a 'arch' 
+  322  ls
+  323  cat /etc/*-release
+  324  ansible all -i inventory -u vagrant -m command -a 'cat /etc/*-release' 
+  325  cat /etc/*-release
+  326  ansible all -i inventory -u vagrant -m command -a 'cat /etc/*-release' 
+  327  cat /etc/*-release
+  328  ansible all -i inventory -u vagrant -m command -a 'cat /etc/*-release' 
+  329  ansible all -i inventory -u vagrant -m command -a 'cat /etc/*-release'  -k 
+  330  df -h 
+  331  ansible all -i inventory -u vagrant -m command -a 'cat /etc/*-release'  -k 
+  332  ansible all -i inventory -u vagrant -m command -a 'cat /etc/os-release'  -k 
+  333  ansible all -i inventory -u vagrant -m shell -a 'cat /etc/*-release'  -k 
+  334  vim inventory 
+  335  ls
+  336  ansible all -i inventory -u vagrant -m command -a 'arch' 
+  337  ansible all -i inventory -u vagrant -m command -a 'arch' -k 
+  338  ansible web -i inventory -u vagrant -m command -a 'arch' -k 
+  339  ansible ansible -i inventory -u vagrant -m command -a 'arch' -k 
+  340  vim inventory 
+  341  ansible web -i inventory -u vagrant -m command -a 'arch' -k 
+  342  vim inventory 
+  343  ansible db -i inventory -u vagrant -m command -a 'arch' -k 
+  344  ansible all -i inventory -u vagrant -m command -a 'arch' -k 
+  345  ls
+  346  vim inventory 
+  347  ansible prod -i inventory -u vagrant -m command -a 'arch' -k 
+  348  ansible web -i inventory -u vagrant -m command -a 'arch' -k 
+  349  ansible 'web:db' -i inventory -u vagrant -m command -a 'arch' -k 
+  350  ansible 'web:&prod' -i inventory -u vagrant -m command -a 'arch' -k 
+  351  ansible 'web:&uat' -i inventory -u vagrant -m command -a 'arch' -k 
+  352  ls
+  353  vim inventory 
+  354  ansible 'web:&prod' -i inventory -u vagrant -m command -a 'arch' -k 
+  355  ansible 'web:&prod:!ansible' -i inventory -u vagrant -m command -a 'arch' -k 
+  356  ls
+  357  vim inventory 
+  358  ansible 'dc' -i inventory -u vagrant -m command -a 'arch' -k 
+  359  vim inventory 
+  360  ansible 'dc' -i inventory -m command -a 'arch' 
+  361  ansible 'web' -i inventory -m command -a 'arch' 
+  362  vim inventory 
+  363  ls
+  364  cd ..
+  365  ls
+  366  cd ..
+  367  ls
+  368  cd - 
+  369  ls
+  370  history 
+  371  history > Day2_History.txt
