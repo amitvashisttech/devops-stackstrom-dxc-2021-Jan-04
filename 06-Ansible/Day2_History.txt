@@ -369,3 +369,95 @@
   369  ls
   370  history 
   371  history > Day2_History.txt
+  372  ls
+  373  cd ../../
+  374  ls
+  375  cd devops-stackstrom-dxc-2021-Jan-04/
+  376  ls
+  377  git add . ; git commit -m "01-Inventory"; git push 
+  378  ansible-doc 
+  379  ansible-doc -l 
+  380  ansible-doc apt
+  381  ls
+  382  cd 06-Ansible/
+  383  ls
+  384  cd 01-Inventory/
+  385  ls
+  386  ansible 172.31.0.101 -i inventory -m apt -a 'name=apache2 state=present'
+  387  ansible 172.31.0.101 -i inventory -m apt -a 'name=apache2 state=present' -s
+  388  ansible 172.31.0.101 -i inventory -m service -a 'name=apache2 state=started' -s
+  389  ansible 172.31.0.101 -i inventory -m service -a 'name=apache2 state=stopped' -s
+  390  ansible 172.31.0.101 -i inventory -m service -a 'name=apache2 state=started' -s
+  391  ansible 172.31.0.101 -i inventory -m service -a 'name=apache2 state=stopped' -s
+  392  ansible 172.31.0.101 -i inventory -m apt -a 'name=apache2 state=absent'
+  393  ansible 172.31.0.101 -i inventory -m apt -a 'name=apache2 state=absent' -s 
+  394  cd ..
+  395  ls
+  396  mkdir 02-Playbooks
+  397  cd 02-Playbooks/
+  398  ls
+  399  cp -rf ../01-Inventory/inventory .
+  400  ls
+  401  vim playbook.yaml
+  402  ansible-playbook playbook.yaml 
+  403  ls
+  404  ansible-playbook -i inventory playbook.yaml 
+  405  vim playbook.yaml 
+  406  ansible-playbook -i inventory playbook.yaml 
+  407  vim playbook.yaml 
+  408  ansible-playbook -i inventory playbook.yaml 
+  409  ansible-playbook -i inventory playbook.yaml -vvv
+  410  ls
+  411  vim playbook.yaml 
+  412  ansible-playbook -i inventory playbook.yaml 
+  413  docker ps 
+  414  service apache2 status 
+  415  ls
+  416  vim inventory 
+  417  ansible-playbook -i inventory playbook.yaml 
+  418  vim playbook.yaml 
+  419  ansible-playbook -i inventory playbook.yaml 
+  420  ls
+  421  cat /root/.ssh/known_hosts 
+  422  > /root/.ssh/known_hosts 
+  423  cat /root/.ssh/known_hosts 
+  424  ansible-playbook -i inventory playbook.yaml 
+  425  ls
+  426  cd /etc/ansible/
+  427  ls
+  428  cat hosts 
+  429  ls
+  430  cat ansible.cfg 
+  431  ls
+  432  grep -i hostkey
+  433  grep -i hostkey ansible.cfg 
+  434  grep -i checking ansible.cfg 
+  435  cd - 
+  436  ls
+  437  vim ansible.cfg
+  438  ls
+  439  cat /root/.ssh/known_hosts 
+  440  ansible-playbook -i inventory playbook.yaml 
+  441  cat /root/.ssh/known_hosts 
+  442  vim ansible.cfg
+  443  ansible-playbook -i inventory playbook.yaml 
+  444  > /root/.ssh/known_hosts 
+  445  cat /root/.ssh/known_hosts
+  446  ansible-playbook -i inventory playbook.yaml 
+  447  vi /etc/ansible/ansible.cfg 
+  448  Lls
+  449  ls
+  450  vim ansible.cfg 
+  451  ls
+  452  ansible-playbook playbook.yaml 
+  453  ls
+  454  mv inventory hosts
+  455  ansible-playbook playbook.yaml 
+  456  cat /root/.ssh/known_hosts 
+  457  cat ansible.cfg 
+  458  vim ansible.cfg 
+  459  ansible-playbook playbook.yaml 
+  460  ls
+  461  cd ..
+  462  ls
+  463  history > Day2_History.txt 
