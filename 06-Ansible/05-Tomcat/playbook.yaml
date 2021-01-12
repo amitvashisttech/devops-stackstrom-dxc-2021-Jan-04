@@ -1,0 +1,47 @@
+---
+
+- hosts: tomcat
+  name: "My Tomcat App Server Deployment"
+  become: yes
+  vars:
+    doc_root: "/var/www/html"
+    doc_tomcat: "/opt/SP/apps"
+    doc_tomcat_webapp: "/opt/SP/apps/tomcat/webapps/jenkins"
+  
+  tasks: 
+  - name: Install Apache2 Packages
+    apt: name=apache2 state=present 
+
+  - name: Start Apache Service
+    service: name=apache2 state=started 
+
+  - name: Disable my firewall
+    service: name=ufw state=stopped enabled=False
+  
+  - name: Deploy Custom Web Page
+    copy: src=files/index.html dest={{doc_root}}
+
+  - name: Deploy Custom Info Page
+    template: src=templates/info.j2 dest={{doc_root}}/info.html
+
+  - name: Tomcat Home Dir
+    file: path={{doc_tomcat}}/tomcat state=directory
+
+  - name: Install Default Java 1.8 
+    apt: name=default-jdk state=present
+
+  - name: Download Tomcat TarBall 
+    get_url: url="https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.61/bin/apache-tomcat-8.5.61.tar.gz" dest={{doc_tomcat}}/tomcat.tar.gz mode=0755
+
+  - name: Extract Tomcat TarBall
+    command: "tar zxf {{doc_tomcat}}/tomcat.tar.gz -C {{doc_tomcat}}/tomcat --strip-components 1"
+
+  - name: Tomcat WebApp Dir
+    file: path={{doc_tomcat_webapp}} state=directory
+
+  - name: Deploy Jenkins Index Page
+    copy: src=files/jenkins.html dest={{doc_tomcat_webapp}}/index.html
+
+  - name: Start the Tomcat App Server 
+    shell: "nohup sh /opt/SP/apps/tomcat/bin/catalina.sh start"
+  
