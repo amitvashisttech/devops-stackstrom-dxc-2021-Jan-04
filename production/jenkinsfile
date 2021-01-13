@@ -1,0 +1,41 @@
+node {
+
+// Get Artifactory Details. 
+    
+    def server = Artifactory.server "01"
+    def buildInfo = Artifactory.newBuildInfo()
+
+// Project Path
+   
+    def project_path="Download"
+    
+    stage('Git CheckOut') {
+    git branch: 'production', url: 'https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git'
+    }
+    
+    
+    dir(project_path) {
+    
+    stage('Build Managment') {
+       def downloadSpec = """{ 
+           "files": [
+          {
+            "pattern": "petclinic-war/*.war",
+            "target" : "roles/petclinic/files/"
+          }
+          ]
+          }"""
+          server.download spec: downloadSpec
+
+    }
+    
+    
+    stage('Getting Ready for Ansible'){
+        sh 'echo \'<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>\'  > roles/petclinic/files/jenkins.html'   
+    }
+
+    stage('Deployment - Production'){
+        sh 'ansible-playbook petclinic.yaml'  
+    }
+  }
+}
