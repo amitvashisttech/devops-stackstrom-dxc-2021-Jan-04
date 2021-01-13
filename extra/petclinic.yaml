@@ -1,0 +1,7 @@
+---
+
+- hosts: tomcat
+  name: "Petclinic App Deployment"
+  become: yes
+  roles:
+  - petclinic
