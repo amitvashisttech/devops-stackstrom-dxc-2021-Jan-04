@@ -8,13 +8,13 @@
 ## First clone this repository on your windows machine.
 
 ```
-git clone https://github.com/amitvashisttech/k8s-docker-vmware-08-June-2020.git
+git clone https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git
 ``` 
 
 ## Now provision three virtual machines with following commands:
 
 ```
-cd k8s-docker-vmware-08-June-2020/02-K8s/
+cd devops-stackstrom-dxc-2021-Jan-04/02-K8s/
 vagrant.exe up
 
 
@@ -36,8 +36,8 @@ Note :
 ```
 vagrant.exe ssh master
 sudo su - 
-git clone To https://github.com/amitvashisttech/K8s-docker-ericsson-2020-Dec-07.git
-cd K8s-docker-ericsson-2020-Dec-07/02-Kubernetes/00-Setup
+git clone To https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git
+cd devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/00-Setup
 sh install-k8s-master-node.sh
 
 ---
@@ -76,8 +76,8 @@ k8s-master   Ready    master   5m6s   v1.18.0
 ```
 vagrant.exe ssh woker1
 sudo su - 
-git clone To https://github.com/amitvashisttech/K8s-docker-ericsson-2020-Dec-07.git
-cd K8s-docker-ericsson-2020-Dec-07/02-Kubernetes/00-Setup
+git clone To https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git
+cd devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/00-Setup
 sh install-k8s-worker-node.sh
 ```
 
