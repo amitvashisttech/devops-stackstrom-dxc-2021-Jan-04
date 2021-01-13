@@ -1,0 +1,5 @@
+---
+# tasks file for webserver
+
+- name: Disable my firewall
+  service: name=ufw state=stopped enabled=False

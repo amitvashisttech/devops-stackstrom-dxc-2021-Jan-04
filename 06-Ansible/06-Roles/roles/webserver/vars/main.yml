@@ -1,0 +1,4 @@
+---
+# vars file for webserver
+doc_root: "/var/www/html"
+username: "Testing Roles - 1"

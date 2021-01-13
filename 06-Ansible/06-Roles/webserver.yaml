@@ -1,0 +1,7 @@
+---
+
+- hosts: web
+  name: "Apache2 Web Server Deployment"
+  become: yes
+  roles:
+  - webserver
