@@ -1,0 +1,25 @@
+---
+# tasks file for tomcat
+- name: Tomcat Home Dir
+  file: path={{doc_tomcat}}/tomcat state=directory
+
+- name: Install Default Java 1.8 
+  apt: name=default-jdk state=present
+
+- name: Download Tomcat TarBall 
+  get_url: url="https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.61/bin/apache-tomcat-8.5.61.tar.gz" dest={{doc_tomcat}}/tomcat.tar.gz mode=0755
+
+- name: Extract Tomcat TarBall
+  command: "tar zxf {{doc_tomcat}}/tomcat.tar.gz -C {{doc_tomcat}}/tomcat --strip-components 1"
+
+- name: Tomcat WebApp Dir
+  file: path={{doc_tomcat_webapp}} state=directory
+
+- name: Deploy Jenkins Index Page
+  copy: src=files/jenkins.html dest={{doc_tomcat_webapp}}/index.html
+
+- name: Deploy Petclinic WAR
+  copy: src=files/petclinic.war dest={{doc_tomcat}}/tomcat/webapps/
+
+- name: Start the Tomcat App Server 
+  shell: "nohup sh /opt/SP/apps/tomcat/bin/catalina.sh start"

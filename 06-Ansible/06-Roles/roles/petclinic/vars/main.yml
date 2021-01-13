@@ -1,0 +1,4 @@
+---
+# vars file for tomcat
+doc_tomcat: "/opt/SP/apps"
+doc_tomcat_webapp: "/opt/SP/apps/tomcat/webapps/jenkins"
