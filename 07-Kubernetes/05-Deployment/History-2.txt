@@ -1,147 +1,92 @@
-    1  kubectl get pods -n kube-system 
-    2  kubectl cluster-info
-    3  kubectl cluster-info > README.md
-    4  ls
-    5  kubectl versions
-    6  kubectl version
-    7  kubectl version >> README.md 
+    1  kubectl get nodes 
+    2  kubectl get pods
+    3  kubectl get ns
+    4  kubectl get pods -n kube-system
+    5  kubectl exec -it etcd-master -n kube-system -- /bin/sh
+    6  ls
+    7  cd ..
     8  ls
-    9  kubectl api-versions
-   10  kubectl api-versions >> README.md 
-   11  kubectl api-resources
-   12  kubectl api-versions
-   13  ls
-   14  kubectl proxy --address='172.31.0.100' --port=8001 --accept-hosts='.' --accept-paths='.' &
-   15  http://172.31.0.100:8001/api
-   16  curl http://172.31.0.100:8001/api
-   17  curl http://172.31.0.100:8001/apis
-   18  curl http://172.31.0.100:8001/api/v1
-   19  curl http://172.31.0.100:8001/api/v1/pods 
-   20  ls
-   21  history >> README.md 
-   22  ls
-   23  mv README.md 03-Api-Server/
-   24  ls
-   25  vim 03-Api-Server/README.md 
-   26  ls
-   27  cd ..
-   28  ls
-   29  git add . ; git commit -m "07-Kubernetes - APi"; git push 
-   30  ls
-   31  git pull
-   32  ls
-   33  cd 07-Kubernetes/
-   34  ls
-   35  mkdir 04-ReplicationCantroller
-   36  ls
-   37  mv rc.yaml 04-ReplicationCantroller/
-   38  ls
-   39  cd 04-ReplicationCantroller/
-   40  ls
-   41  vim rc.yaml 
-   42  ls
-   43  kubectl create -f rc.yaml
-   44  kubectl get pods 
-   45  kubectl get rc
-   46  kubectl get pods -o wide 
-   47  kubectl get rc 
-   48  kubectl scale --replicas=10 rc helloworld-controller
-   49  kubectl scale --replicas=1 rc helloworld-controller
-   50  ls
-   51  cd 
-   52  ls
-   53  kubectl get rc 
-   54  cd - 
-   55  ls
-   56  vim rc.yaml 
-   57  kubectl create -f rc.yaml
-   58  kubectl get rc 
-   59  kubectl apply -f rc.yaml
-   60  kubectl get rc 
-   61  kubectl scale --replicas=10 rc helloworld-controller
-   62  kubectl get rc 
-   63  ls
-   64  kubectl apply -f rc.yaml
-   65  kubectl get rc 
-   66  vim rc.yaml 
-   67  ls
-   68  kubectl apply -f rc.yaml
-   69  kubectl get rc 
-   70  kubectl get pods 
-   71  cd ..
-   72  ls
-   73  grep -i "helloworld-controller"  * 
-   74  grep -ir "helloworld-controller"  * 
-   75  cd ../
-   76  grep -ir "helloworld-controller"  * 
-   77  cd - 
-   78  ls
-   79  cd 04-ReplicationCantroller/
-   80  l
-   81  cd ..
-   82  ls
-   83  cd ..
-   84  ls
-   85  git add . ; git commit -m "07-Kubernetes - APi"; git push 
-   86  ls
-   87  cd 07-Kubernetes/
-   88  ls
-   89  cd ..
-   90  ls
-   91  git pull
-   92  ls
-   93  cd 07-Kubernetes/
-   94  ls
-   95  mkdir 05-Deployment
-   96  mv deployment.yaml 05-Deployment/
-   97  ls
-   98  cd 05-Deployment/
-   99  ls
-  100  cd ..
-  101  ls
-  102  cd 04-ReplicationCantroller/
-  103  ls
-  104  kubectl delete -f rc.yaml 
-  105  ld
-  106  ls
-  107  kubectl get pods 
-  108  kubectl delete pod hello-k8s hello-k8s-2
-  109  ls
-  110  cd ../
-  111  ls
-  112  cd 05-Deployment/
-  113  ls
-  114  vim deployment.yaml 
-  115  ls
-  116  kubectl create -f deployment.yaml 
-  117  ls
-  118  kubectl get deployment
-  119  kubectl get deploy
-  120  kubectl get pods 
-  121  kubectl get deploy,rs,pod
-  122  kubectl get pods --show-labels
-  123  kubectl scale --replicas=10 deploy helloworld-deployment
-  124  kubectl scale --replicas=5 deploy helloworld-deployment
-  125  ls
-  126  kubectl get deploy
-  127  kubectl describe deploy helloworld-deployment
-  128  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:2
-  129  kubectl describe deploy helloworld-deployment
-  130  kubectl rollout status deploy helloworld-deployment
-  131  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:3
-  132  kubectl rollout status deploy helloworld-deployment
-  133  kubectl get rs 
-  134  kubectl rollout undo deploy helloworld-deployment
-  135  kubectl rollout status deploy helloworld-deployment
-  136  kubectl rollout history deploy helloworld-deployment
-  137  kubectl describe deploy helloworld-deployment
-  138  kubectl rollout history deploy helloworld-deployment
-  139  kubectl rollout history deploy helloworld-deployment --revision=1
-  140  kubectl rollout history deploy helloworld-deployment --revision=3
-  141  kubectl rollout history deploy helloworld-deployment --revision=4
-  142  kubectl rollout history deploy helloworld-deployment --revision=1
-  143  kubectl get rs
-  144  kubectl get pods 
-  145  ls
-  146  history 
-  147  history > History-2.txt 
+    9  cd ..
+   10  ls
+   11  git add . ; git commit -m "02-ETCD"; git push 
+   12  ls
+   13  git pull
+   14  ls
+   15  cd 07-Kubernetes/
+   16  ls
+   17  mv README-ETCD.md 02-ETCD/README.md
+   18  ls
+   19  cd ..
+   20  git add . ; git commit -m "02-ETCD"; git push 
+   21  watch -n .5 kubectl get pods 
+   22  watch -n .5 kubectl get pods  --show-labels
+   23  ls
+   24  cd 07-Kubernetes/
+   25  ls
+   26  05-Deployment/
+   27  ls
+   28  cd 05-Deployment/
+   29  ls
+   30  history > History.txt
+   31  ls
+   32  cd ..
+   33  ls
+   34  cd ..
+   35  ls
+   36  git add . ; git commit -m "07-Kubernetes-Deploy"; git push 
+   37  ls
+   38  cd 07-Kubernetes/
+   39  ls
+   40  cd 05-Deployment/
+   41  ls
+   42  cat History.txt 
+   43  cd ..
+   44  ls
+   45  git add . ; git commit -m "07-Kubernetes-Deploy"; git push 
+   46  ls
+   47  kubectl get pods 
+   48  kubectl get deploy 
+   49  kubectl get rs 
+   50  kubectl rollout history deploy helloworld-deployment
+   51  kubectl rollout history deploy helloworld-deployment --revision=1
+   52  kubectl rollout history deploy helloworld-deployment --revision=2
+   53  kubectl rollout history deploy helloworld-deployment --revision=3
+   54  kubectl rollout history deploy helloworld-deployment --revision=4
+   55  kubectl rollout history deploy helloworld-deployment
+   56  kubectl rollout history deploy helloworld-deployment --revision=4
+   57  kubectl rollout history deploy helloworld-deployment
+   58  kubectl rollout undo deploy helloworld-deployment
+   59  kubectl rollout history deploy helloworld-deployment
+   60  ls
+   61  vim 07-Kubernetes/05-Deployment/deployment.yaml 
+   62  kubectl apply -f 07-Kubernetes/05-Deployment/deployment.yaml 
+   63  kubectl rollout history deploy helloworld-deployment
+   64  kubectl rollout history deploy helloworld-deployment --revision=10
+   65  kubectl rollout history deploy helloworld-deployment --revision=9
+   66  kubectl rollout history deploy helloworld-deployment
+   67  vim 07-Kubernetes/05-Deployment/deployment.yaml 
+   68  kubectl apply -f 07-Kubernetes/05-Deployment/deployment.yaml 
+   69  kubectl rollout history deploy helloworld-deployment
+   70  kubectl rollout history deploy helloworld-deployment --revision=11
+   71  kubectl rollout history deploy helloworld-deployment --revision=10
+   72  kubectl rollout history deploy helloworld-deployment --revision=9
+   73  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:4 --record
+   74  kubectl rollout history deploy helloworld-deployment
+   75  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:4 --record
+   76  kubectl rollout history deploy helloworld-deployment
+   77  kubectl rollout undo deploy helloworld-deployment
+   78  kubectl rollout history deploy helloworld-deployment
+   79  kubectl rollout undo deploy helloworld-deployment
+   80  kubectl rollout history deploy helloworld-deployment
+   81  kubectl rollout undo deploy helloworld-deployment --to-revision=6
+   82  kubectl rollout history deploy helloworld-deployment
+   83  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:4 
+   84  kubectl rollout history deploy helloworld-deployment
+   85  kubectl set image deploy helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:4 --record
+   86  kubectl rollout history deploy helloworld-deployment
+   87  ls
+   88  cd 07-Kubernetes/
+   89  ls
+   90  cd 05-Deployment/
+   91  ls
+   92  history > History-2.txt 
