@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: helloworld-2-deployment
   labels:
-    app: helloworld-2
+    app: helloworld
 spec:
   replicas: 10
   strategy:
@@ -13,11 +13,11 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: helloworld-2
+      app: helloworld
   template:
     metadata:
       labels:
-        app: helloworld-2
+        app: helloworld
     spec:
       containers:
       - name: k8s-demo

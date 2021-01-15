@@ -1,0 +1,51 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2021-01-15T10:45:12Z"
+  labels:
+    app: helloworld
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:app: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-01-15T10:45:12Z"
+  name: helloworld-deployment
+  namespace: default
+  resourceVersion: "83139"
+  selfLink: /api/v1/namespaces/default/services/helloworld-deployment
+  uid: e3e8a620-4e12-44fa-966b-0bce5d21797a
+spec:
+  clusterIP: 10.100.165.71
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: helloworld
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
