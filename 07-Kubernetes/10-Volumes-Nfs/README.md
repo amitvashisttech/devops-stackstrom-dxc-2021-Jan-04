@@ -9,9 +9,9 @@ chown nobody:nogroup /exports
 
 ## NFS Export Path & Share Config
 ```
-root@kube-master:~/k8s-paypal-28-Dec-2020/26-Volumes-NFS# grep -i exports /etc/exports
+root@kube-master:~/# grep -i exports /etc/exports
 /exports  *(rw,sync,no_subtree_check)
-root@kube-master:~/k8s-paypal-28-Dec-2020/26-Volumes-NFS#
+root@kube-master:~/# chmod -R 775 /exports
 ```
 
 ## Restart the NFS Server Service
@@ -31,7 +31,7 @@ showmount -e localhost
 ## Install NFS Clinet Utils 
 ```
 apt-get install nfs-common -y
-mount -t nfs 172.31.0.10:/exports /mnt/
+mount -t nfs 172.31.0.100:/exports /mnt/
 cd /mnt/
 hostname >> hostname.txt
 ```
