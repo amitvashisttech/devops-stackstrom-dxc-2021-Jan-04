@@ -1,0 +1,87 @@
+    1  ls
+    2  cd 15-ConfigMap/
+    3  ls
+    4  rm -rf History.txt 
+    5  ls
+    6  cat reverseproxy.conf 
+    7  kubectl get configmap
+    8  rm -rf ConfigMap.yaml 
+    9  ls
+   10  kubectl create configmap nginx-config --help
+   11  ls
+   12  kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml --dry-run 
+   13  kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml --dry-run > ConfigMap.yaml
+   14  ls
+   15  cat ConfigMap.yaml 
+   16  ls
+   17  kubectl create -f ConfigMap.yaml 
+   18  kubectl get configmap
+   19  kubectl describe configmap nginx-config
+   20  ls
+   21  vim nginx-pod.yml 
+   22  ls
+   23  kubectl create -f nginx-pod.yml 
+   24  kubectl create -f nginx-service.yaml 
+   25  kubectl get pods 
+   26  kubectl get svc 
+   27  kubectl get pods 
+   28  kubectl describe pod helloworld-nginx
+   29  kubectl get pods 
+   30  kubectl describe pod helloworld-nginx
+   31  kubectl get pods 
+   32  kubectl get pods -o wide 
+   33  kubectl  get svc 
+   34  kubectl exec -it helloworld-nginx -c nginx -- bash 
+   35  kubectl exec -it helloworld-nginx -c nginx -- ls /etc/nginx/conf.d
+   36  kubectl exec -it helloworld-nginx -c nginx -- ls /etc/nginx/conf.d/reverseproxy.conf
+   37  kubectl exec -it helloworld-nginx -c nginx -- cat  /etc/nginx/conf.d/reverseproxy.conf
+   38  kubectl edit configmap
+   39  kubectl describe configmap
+   40  kubectl exec -it helloworld-nginx -c nginx -- cat  /etc/nginx/conf.d/reverseproxy.conf
+   41  ls
+   42  history > History.txt
+   43  ls
+   44  cd ..
+   45  ls
+   46  cd ..
+   47  ls
+   48  git add . ; git commit -m "15-ConfigMap"; git push 
+   49  git pull 
+   50  ls
+   51  cd 07-Kubernetes/
+   52  ls
+   53  kubectl get pods 
+   54  kubectl delete -f 15-ConfigMap/
+   55  ls
+   56  kubectl create -f 16-Ingress/
+   57  ls
+   58  cd 16-Ingress/
+   59  ls
+   60  cat nginx-ingress-controller.yaml 
+   61  kubectl get pods 
+   62  kubectl create clusterrolebinding add-on-cluster-admin   --clusterrole=cluster-admin   --serviceaccount=kube-system:default
+   63  kubectl create clusterrolebinding add-on-cluster-admin-1   --clusterrole=cluster-admin   --serviceaccount=default:default
+   64  kubectl get pods 
+   65  kubectl get svc 
+   66  kubectl get pods -o wide 
+   67  kubectl get pods 
+   68  kubectl expose rc nginx-ingress-controller --type=NodePort
+   69  kubectl get pods 
+   70  kubectl get svc 
+   71  kubectl get pods -o wide 
+   72  curl http://172.31.0.102:32101/
+   73  kubectl get pods -o wide 
+   74  kubectl get ingress
+   75  kubectl describe ingress
+   76  kubectl get svc -o wide 
+   77  kubectl get pods  -o wide 
+   78  kubectl get ingress
+   79  curl http://172.31.0.102:32101/
+   80  curl http://172.31.0.102:32101/ -H 'Host: helloworld-v1.example.com'
+   81  curl http://172.31.0.102:32101/ -H 'Host: helloworld-v2.example.com'
+   82  curl http://172.31.0.102:32101/
+   83  ls
+   84  vim helloworld-v1.yml 
+   85  kubectl get svc 
+   86  ls
+   87  history > Histroy.txt 
