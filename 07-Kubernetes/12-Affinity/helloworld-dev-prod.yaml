@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helloworld-deployment
+  name: helloworld-2-deployment
   labels:
-    app: helloworld
+    app: helloworld-2
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: helloworld
+      app: helloworld-2
   template:
     metadata:
       labels:
-        app: helloworld
+        app: helloworld-2
     spec:
       containers:
       - name: k8s-demo

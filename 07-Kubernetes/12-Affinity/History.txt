@@ -1,0 +1,63 @@
+  285  git pull 
+  286  ls
+  287  cd 07-Kubernetes/
+  288  ls
+  289  vim 12-Affinity/helloworld.yaml 
+  290  ls
+  291  kubectl create -f 12-Affinity/helloworld.yaml 
+  292  kubectl get pods 
+  293  kubectl delete -f 11-Taint-and-Toleration/helloworld-ds.yaml 
+  294  kubectl get pods 
+  295  kubectl describe pod helloworld-deployment-b64578fb-m9xpw
+  296  ls
+  297  kubectl get nodes --show-labels
+  298  kubectl label nodes  worker1 env=prod
+  299  kubectl get pods 
+  300  kubectl label nodes  worker2 env=dev
+  301  kubectl get pods 
+  302  kubectl get pods -o wide 
+  303  kubectl scale --replicas=10 deploy helloworld-deployment
+  304  kubectl get pods -o wide 
+  305  kubectl scale --replicas=3 deploy helloworld-deployment
+  306  kubectl get pods -o wide 
+  307  vim 12-Affinity/helloworld-dev-prod.yaml 
+  308  kubectl create -f  12-Affinity/helloworld-dev-prod.yaml 
+  309  vim 12-Affinity/helloworld-dev-prod.yaml 
+  310  kubectl create -f  12-Affinity/helloworld-dev-prod.yaml 
+  311  kubectl get pods 
+  312  kubectl get pods -o wide 
+  313  cat 07-Labels/helloworld-v3.yaml 
+  314  ls
+  315  kubectl get pods 
+  316  kubectl delete -f 12-Affinity/
+  317  kubectl get nodes --show-labels
+  318  kubectl label nodes  worker1 env=dev
+  319  kubectl label nodes  worker1 env=dev --overwrite
+  320  kubectl label nodes  worker1 env=dev
+  321  kubectl get nodes --show-labels
+  322  kubectl create -f 12-Affinity/helloworld-dev-prod.yaml 
+  323  kubectl get pods 
+  324  kubectl get pods -o wide
+  325  kubectl label nodes  worker2 team=engineering-project1
+  326  kubectl get nodes --show-labels
+  327  kubectl get pods -o wide
+  328  kubectl scale --replicas=5 deploy helloworld-2-deploymen
+  329  kubectl scale --replicas=5 deploy helloworld-2-deployment
+  330  kubectl get pods -o wide
+  331  ls
+  332  kubectl delete -f 12-Affinity/helloworld-dev-prod.yaml 
+  333  vim 12-Affinity/helloworld-multi-affinity.yaml 
+  334  ls
+  335  kubectl create -f 12-Affinity/helloworld-multi-affinity.yaml 
+  336  kubectl get pods -o wide
+  337  kubectl scale --replicas=10 deploy helloworld-deployment
+  338  kubectl get pods -o wide
+  339  kubectl scale --replicas=15 deploy helloworld-deployment
+  340  kubectl get pods -o wide
+  341  vim 12-Affinity/helloworld-multi-affinity.yaml 
+  342  ls
+  343  kubectl get pods
+  344  kubectl get pods -o wide 
+  345  kubectl delete -f 12-Affinity/
+  346  ls
+  347  history > 12-Affinity/History.txt
