@@ -1,0 +1,228 @@
+    1  ls
+    2  cd 15-ConfigMap/
+    3  ls
+    4  rm -rf History.txt 
+    5  ls
+    6  cat reverseproxy.conf 
+    7  kubectl get configmap
+    8  rm -rf ConfigMap.yaml 
+    9  ls
+   10  kubectl create configmap nginx-config --help
+   11  ls
+   12  kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml --dry-run 
+   13  kubectl create configmap nginx-config --from-file=reverseproxy.conf -o yaml --dry-run > ConfigMap.yaml
+   14  ls
+   15  cat ConfigMap.yaml 
+   16  ls
+   17  kubectl create -f ConfigMap.yaml 
+   18  kubectl get configmap
+   19  kubectl describe configmap nginx-config
+   20  ls
+   21  vim nginx-pod.yml 
+   22  ls
+   23  kubectl create -f nginx-pod.yml 
+   24  kubectl create -f nginx-service.yaml 
+   25  kubectl get pods 
+   26  kubectl get svc 
+   27  kubectl get pods 
+   28  kubectl describe pod helloworld-nginx
+   29  kubectl get pods 
+   30  kubectl describe pod helloworld-nginx
+   31  kubectl get pods 
+   32  kubectl get pods -o wide 
+   33  kubectl  get svc 
+   34  kubectl exec -it helloworld-nginx -c nginx -- bash 
+   35  kubectl exec -it helloworld-nginx -c nginx -- ls /etc/nginx/conf.d
+   36  kubectl exec -it helloworld-nginx -c nginx -- ls /etc/nginx/conf.d/reverseproxy.conf
+   37  kubectl exec -it helloworld-nginx -c nginx -- cat  /etc/nginx/conf.d/reverseproxy.conf
+   38  kubectl edit configmap
+   39  kubectl describe configmap
+   40  kubectl exec -it helloworld-nginx -c nginx -- cat  /etc/nginx/conf.d/reverseproxy.conf
+   41  ls
+   42  history > History.txt
+   43  ls
+   44  cd ..
+   45  ls
+   46  cd ..
+   47  ls
+   48  git add . ; git commit -m "15-ConfigMap"; git push 
+   49  git pull 
+   50  ls
+   51  cd 07-Kubernetes/
+   52  ls
+   53  kubectl get pods 
+   54  kubectl delete -f 15-ConfigMap/
+   55  ls
+   56  kubectl create -f 16-Ingress/
+   57  ls
+   58  cd 16-Ingress/
+   59  ls
+   60  cat nginx-ingress-controller.yaml 
+   61  kubectl get pods 
+   62  kubectl create clusterrolebinding add-on-cluster-admin   --clusterrole=cluster-admin   --serviceaccount=kube-system:default
+   63  kubectl create clusterrolebinding add-on-cluster-admin-1   --clusterrole=cluster-admin   --serviceaccount=default:default
+   64  kubectl get pods 
+   65  kubectl get svc 
+   66  kubectl get pods -o wide 
+   67  kubectl get pods 
+   68  kubectl expose rc nginx-ingress-controller --type=NodePort
+   69  kubectl get pods 
+   70  kubectl get svc 
+   71  kubectl get pods -o wide 
+   72  curl http://172.31.0.102:32101/
+   73  kubectl get pods -o wide 
+   74  kubectl get ingress
+   75  kubectl describe ingress
+   76  kubectl get svc -o wide 
+   77  kubectl get pods  -o wide 
+   78  kubectl get ingress
+   79  curl http://172.31.0.102:32101/
+   80  curl http://172.31.0.102:32101/ -H 'Host: helloworld-v1.example.com'
+   81  curl http://172.31.0.102:32101/ -H 'Host: helloworld-v2.example.com'
+   82  curl http://172.31.0.102:32101/
+   83  ls
+   84  vim helloworld-v1.yml 
+   85  kubectl get svc 
+   86  ls
+   87  history > Histroy.txt 
+   88  cd ..
+   89  ls
+   90  cd ..
+   91  ls
+   92  git add . ; git commit -m "16-Ingress"; git push 
+   93  git pull 
+   94  ls
+   95  07-Kubernetes/
+   96  ls
+   97  cd 07-Kubernetes/
+   98  ls
+   99  cd 17-Helm/
+  100  ls
+  101  cat README.md 
+  102  cd ; wget https://get.helm.sh/helm-v3.4.2-linux-amd64.tar.gz
+  103  ls
+  104  tar -zxf helm-v3.4.2-linux-amd64.tar.gz 
+  105  ls
+  106  mv linux-amd64//helm /usr/local/bin/helm
+  107  helm version 
+  108  ls
+  109  cd - 
+  110  ls
+  111  cat README.md 
+  112  ls
+  113  vi helm-rbac.yaml 
+  114  ls
+  115  rm 1
+  116  kubectl get roles
+  117  kubectl get roles -n kube-system
+  118  kubectl get clusterroles -n kube-system
+  119  kubectl describe clusterroles  cluster-admin -n kube-system
+  120  kubectl get clusterroles -n kube-system
+  121  kubectl describe clusterroles  cluster-admin -n kube-system
+  122  kubectl describe clusterroles view  -n kube-system
+  123  ls
+  124  kubectl get sa  -n kube-system
+  125  ls
+  126  cat helm-rbac.yaml 
+  127  kubectl get ClusterRoleBinding  -n kube-system
+  128  kubectl describe ClusterRoleBinding cluster-admin  -n kube-system
+  129  ls
+  130  kubectl create -f helm-rbac.yaml 
+  131  kubectl describe ClusterRoleBinding tiller  -n kube-system
+  132  kubectl get sa tiller  -n kube-system
+  133  kubectl describe sa tiller  -n kube-system
+  134  kubectl get secrets
+  135  ls
+  136  cat README.md 
+  137  helm init --service-account tiller --override spec.selector.matchLabels.'name'='tiller',spec.selector.matchLabels.'app'='helm' --output yaml | sed 's@apiVersion: extensions/v1beta1@apiVersion: apps/v1@' | kubectl apply -f -
+  138  helm init --service-account tiller --override spec.selector.matchLabels. 'name'='tiller',spec.selector.matchLabels.'app'='helm' --output yaml | sed 's@apiVersion: extensions/v1beta1@apiVersion: apps/v1@' | kubectl ap ply -f -
+  139  cd
+  140  ls
+  141  helm --help
+  142  helm init 
+  143  helm lint
+  144  helm  --version 
+  145  helm  version 
+  146  ls
+  147  cd linux-amd64/
+  148  ls
+  149  cat README.md 
+  150  helm list 
+  151  ls
+  152  helm search wordpress
+  153  ls
+  154  cd - 
+  155  ls
+  156  cat devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/17-Helm/README.md 
+  157  helm repo add azure-marketplace https://marketplace.azurecr.io/helm/v1/repo
+  158  helm search wordpress
+  159  helm search repo wordpress
+  160  helm install mywordpress azure-marketplace/wordpress
+  161  kubectl get pods 
+  162  kubectl delete -f devops-stackstrom-dxc-2021-Jan-04/07-Kubernetes/16-Ingress/
+  163  kubectl get pods 
+  164  kubectl describe pod mywordpress-mariadb-0
+  165  kubectl get pods 
+  166  helm search repo nginx
+  167  helm install mynginx azure-marketplace/nginx
+  168  kubectl get pods 
+  169  helm list 
+  170  helm remove mywordpress
+  171  helm uninstall mywordpress
+  172  helm list 
+  173  kubectl get pods 
+  174  kubectl get pods,svc 
+  175  kubectl get pods -o wide 
+  176  helm install mynginx-2 azure-marketplace/nginx
+  177  kubectl get pods 
+  178  kubectl get svc,deploy,rs,pod
+  179  helm list 
+  180  helm uninstall mynginx mynginx-2
+  181  kubectl get svc,deploy,rs,pod
+  182  ls
+  183  cd devops-stackstrom-dxc-2021-Jan-04/
+  184  ls
+  185  cd 07-Kubernetes/
+  186  ls
+  187  cd 17-Helm/
+  188  ls
+  189  vim README.md 
+  190  history 
+  191  history | grep search 
+  192  vim README.md 
+  193  ls
+  194  cd ..
+  195  ls
+  196  cd ..
+  197  ls
+  198  kubectl get pods -n kube-system
+  199  ls
+  200  git add . ; git commit -m "17-Helm"; git push 
+  201  ls
+  202  cd 07-Kubernetes/
+  203  ls
+  204  mkdir 18-Helm-Custom-Chart
+  205  cd 18-Helm-Custom-Chart/
+  206  ls
+  207  helm create mychart
+  208  ls
+  209  tree mychart/
+  210  ls
+  211  cd mychart/
+  212  ls
+  213  cd templates/
+  214  ls
+  215  cat deployment.yaml 
+  216  ls
+  217  cd ..
+  218  ls
+  219  vim values.yaml 
+  220  helm install mywebapp ../mychart --dry-run
+  221  helm install mywebapp ../mychart 
+  222  kubectl get pods 
+  223  kubectl get svc 
+  224  kubectl get pods 
+  225  ls
+  226  cd ..
+  227  ls
+  228  history > History.txt
