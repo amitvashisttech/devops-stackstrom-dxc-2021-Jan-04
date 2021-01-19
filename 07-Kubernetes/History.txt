@@ -1,0 +1,437 @@
+    1  ls
+    2  kubectl create -f 09-Wordpress/wordpress-secrets.yml 
+    3  kubectl get secrets 
+    4  kubectl describe secrets wordpress-secrets
+    5  ls
+    6  kubectl create -f 09-Wordpress/wordpress-deployment.yml 
+    7  kubectl get pods -w
+    8  kubectl get pods 
+    9  kubectl get pods -o wide 
+   10  kubectl descibe pod wordpress-deployment-7d4896594c-m6cc5
+   11  kubectl describe pod wordpress-deployment-7d4896594c-m6cc5
+   12  kubectl get pods -o wide 
+   13  kubectl describe pod wordpress-deployment-7d4896594c-m6cc5
+   14  kubectl get pods 
+   15  kubectl get pods -o wide 
+   16  kubectl get pods 
+   17  kubectl describe pods 
+   18  kubectl get pods 
+   19  kubectl describe pods 
+   20  kubectl get pods 
+   21  kubectl logs pod wordpress-deployment-7d4896594c-m6cc5 -c wordpress 
+   22  kubectl logs pods wordpress-deployment-7d4896594c-m6cc5 -c wordpress 
+   23  kubectl logs wordpress-deployment-7d4896594c-m6cc5 -c wordpress 
+   24  kubectl logs wordpress-deployment-7d4896594c-m6cc5 -c mysql 
+   25  ls
+   26* 
+   27  kubectl delete pod wordpress-deployment-7d4896594c-m6cc5
+   28  kubectl get pods 
+   29  kubectl get pods -o wide 
+   30  kubectl describe pod
+   31  kubectl logs wordpress-deployment-7d4896594c-z9msn -c wordpress
+   32  kubectl describe pod
+   33  kubectl logs wordpress-deployment-7d4896594c-z9msn -c wordpress
+   34  kubectl logs wordpress-deployment-7d4896594c-z9msn -c mysql
+   35  ls
+   36  kubectl create -f 09-Wordpress/wordpress-service.yml 
+   37  kubectl logs wordpress-deployment-7d4896594c-z9msn -c mysql
+   38  ls
+   39  kubectl delete -f 09-Wordpress/
+   40  ls
+   41  echo "Password@123"| base64
+   42  vim 09-Wordpress/wordpress-secrets.yml 
+   43  ls
+   44  kubectl create -f 09-Wordpress/
+   45  kubectl get pods 
+   46  ls
+   47* kubectl log
+   48  kubectl get pods 
+   49  kubectl logs wordpress-deployment-7d4896594c-tb5x9 -c mysql
+   50  echo -n "Password@123"| base64
+   51  echo "Password@123"| base64
+   52  kubectl delete -f 09-Wordpress/
+   53  vim 09-Wordpress/wordpress-secrets.yml 
+   54  kubectl create  -f 09-Wordpress/
+   55  kubectl get pods 
+   56  kubectl logs wordpress-deployment-7d4896594c-fvw9s -c mysql
+   57  kubectl logs wordpress-deployment-7d4896594c-fvw9s -c wordpress
+   58  ls
+   59  kubectl get svc 
+   60  kubectl get pods -o wide 
+   61  kubectl logs wordpress-deployment-7d4896594c-fvw9s -c mysql
+   62  kubectl exec -it wordpress-deployment-7d4896594c-fvw9s -c mysql -- mysql -u root -p 
+   63  ls
+   64  cd 09-Wordpress/
+   65  ls
+   66  history 
+   67  history > History.txt
+   68  vim History.txt 
+   69  ls
+   70  cd ..
+   71  ls
+   72  cd ..
+   73  ls
+   74  git add . ; git commit -m "09-Wordpress" ; git push 
+   75  ls
+   76  kubectl delete -f 07-Kubernetes/09-Wordpress/
+   77  ls
+   78  cd 07-Kubernetes/
+   79  ls
+   80  mkdir 10-Volumes-Nfs
+   81  ls
+   82  cd 10-Volumes-Nfs/
+   83  ls
+   84  echo "Nfs Vol" >> README.md
+   85  cd 
+   86  ls
+   87  cd devops-stackstrom-dxc-2021-Jan-04/
+   88  ls
+   89  git add . ; git commit -m "09-Wordpress" ; git push 
+   90  apt-get install nfs-kernel-server -y 
+   91  mkdir /exports
+   92  chown nobody:nogroup /exports
+   93  echo "/exports  *(rw,sync,no_subtree_check)" >> /etc/exports 
+   94  grep -i exports /etc/exports 
+   95  systemctl restart nfs-kernel-server
+   96  systemctl status  nfs-kernel-server
+   97  showmount -e localhost
+   98  chown nobody:nogroup /exports
+   99  chmod -R 775 /exports
+  100  cd /exports/
+  101  ls
+  102  cat hello.txt 
+  103  ls
+  104  cd 
+  105  ls
+  106  cd devops-stackstrom-dxc-2021-Jan-04/
+  107  ls
+  108  git pull
+  109  ls
+  110  cd 07-Kubernetes/
+  111  ls
+  112  cd 10-Volumes-Nfs/
+  113  ls
+  114  cd ..
+  115  git pull 
+  116  ls
+  117  cd 07-Kubernetes/
+  118  ls
+  119  cd 10-Volumes-Nfs/
+  120  ls
+  121  vim pv-nfs.yaml 
+  122  ls
+  123  kubectl get pv 
+  124  kubectl create pv-nfs.yaml 
+  125  kubectl create -f pv-nfs.yaml 
+  126  kubectl get pv 
+  127  ls
+  128  vim pvc-nfs.yaml 
+  129  ls
+  130  kubectl get pvc 
+  131  kubectl create -f pvc-nfs.yaml 
+  132  kubectl get pvc 
+  133  kubectl get pv
+  134  ls
+  135  vim nfs-busybox-rc.yaml 
+  136  ls
+  137  cat nfs-web-svc.yaml 
+  138  ls
+  139  vim nfs-busybox-rc.yaml 
+  140  ls
+  141  kubectl create -f nfs-busybox-rc.yaml
+  142  kubectl get pods 
+  143  kubectl describe pod nfs-busybox-2-9drzp
+  144  ls
+  145  cd 
+  146  ls
+  147  cd - 
+  148  tail -f  /exports/index.html 
+  149  kubectl get pods -o wide 
+  150  tail -f  /exports/index.html 
+  151  ls
+  152  kubectl delete -f nfs-busybox-rc.yaml
+  153  kubectl get pods 
+  154  ls
+  155  vim web-rc-pvc.yaml 
+  156  ls
+  157  kubectl get pods 
+  158  kubectl create -f web-rc-pvc.yaml
+  159  cat nfs-web-svc.yaml
+  160  kubectl get pods --show-labels
+  161  kubectl create -f nfs-web-svc.yaml 
+  162  kubectl get pods 
+  163  kubectl get svc 
+  164  kubectl edit svc nfs-web
+  165  kubectl get svc 
+  166  kubectl get pods 
+  167  > /exports/index.html 
+  168  echo "Welcome to NFS K8s PV" > /exports/index.html 
+  169  ls
+  170  cd ..
+  171  ls
+  172  kubectl delete -f 10-Volumes-Nfs/
+  173  ls
+  174  cd ..
+  175  ls
+  176  git add . ; git commit -m "10-Volumes-Nfs" ; git push 
+  177  history 
+  178  ls
+  179  history > 07-Kubernetes/10-Volumes-Nfs/History.txt
+  180  git add . ; git commit -m "10-Volumes-Nfs" ; git push 
+  181  ls
+  182  git pull
+  183  ls
+  184  cd 07-Kubernetes/
+  185  ls
+  186  vim 11-Taint-and-Toleration/helloworld.yaml 
+  187  ls
+  188  kubectl create -f 11-Taint-and-Toleration/helloworld.yaml 
+  189  ls
+  190* kubectl d
+  191  kubectl delete -f 11-Taint-and-Toleration/helloworld.yaml 
+  192  kubectl get nodes
+  193  kubectl describe node worker2
+  194  kubectl describe node worker2| grep -A10 taint 
+  195  kubectl taint nodes worker2 app=myapp:NoSchedule
+  196  kubectl describe node worker2| grep -A10 taint 
+  197  kubectl describe node worker2| grep -iA10 taint 
+  198  ls
+  199  kubectl create  -f 11-Taint-and-Toleration/helloworld.yaml 
+  200  kubectl get pods -o wide 
+  201  kubectl describe node worker2| grep -iA10 taint 
+  202  ls
+  203  cat 11-Taint-and-Toleration/helloworld-toleration.yaml 
+  204  kubectl create -f  11-Taint-and-Toleration/helloworld-toleration.yaml 
+  205  kubectl get pods -o wide 
+  206  cat 11-Taint-and-Toleration/helloworld-toleration-2.yaml 
+  207  kubectl create -f 11-Taint-and-Toleration/helloworld-toleration-2.yaml
+  208  kubectl get pods 
+  209  kubectl get pods -o wide 
+  210  kubectl describe node worker2| grep -iA10 taint 
+  211  vim 11-Taint-and-Toleration/helloworld-toleration-2.yaml
+  212  kubectl get pods 
+  213  kubectl get pods -o wide
+  214  vim 11-Taint-and-Toleration/helloworld-toleration-3.yaml
+  215  kubectl create -f 11-Taint-and-Toleration/helloworld-toleration-3.yaml 
+  216  kubectl get pods 
+  217  kubectl get pods -o wide 
+  218  kubectl taint nodes worker2 example2=example2-key:NoExecute
+  219  kubectl ddescribe nodes | grep -i taint
+  220  kubectl describe nodes | grep -i taint
+  221  kubectl describe nodes worker2 | grep -i taint
+  222  kubectl get pods -o wide 
+  223  kubectl taint nodes worker1 example2=example2-key:NoExecute
+  224  kubectl get pods -o wide 
+  225  kubectl taint nodes worker2 example2-
+  226  kubectl get pods -o wide 
+  227  kubectl describe nodes worker2 | grep -i taint
+  228  kubectl get pods -o wide 
+  229  kubectl taint nodes worker2 example2=example2-key:NoExecute
+  230  kubectl get pods -o wide 
+  231  kubectl describe nodes worker2 | grep -i taint
+  232  kubectl describe nodes worker2 | grep -iA10 taint
+  233  kubectl get pods -o wide 
+  234  kubectl taint nodes worker2 example2-
+  235  kubectl get pods -o wide 
+  236  kubectl describe nodes worker2 | grep -iA10 taint
+  237  kubectl get pods -o wide 
+  238  kubectl taint nodes worker2 app-
+  239  kubectl describe nodes worker2 | grep -iA10 taint
+  240  kubectl get pods -o wide 
+  241  ls
+  242  kubectl delete -f 11-Taint-and-Toleration/
+  243  ls
+  244  kubectl get pods 
+  245  kubectl describe nodes | grep -i taint 
+  246  kubectl taint nodes worker1  example2
+  247  kubectl taint nodes worker1  example2-
+  248  kubectl describe nodes | grep -i taint 
+  249  ls
+  250  vim 11-Taint-and-Toleration/helloworld-ds.yaml 
+  251  ls
+  252  cp -rf 11-Taint-and-Toleration/helloworld-ds.yaml .
+  253  ls
+  254  vim helloworld-ds.yaml 
+  255  ls
+  256  kubectl create -f helloworld-ds.yaml 
+  257  kubectl get ds 
+  258  kubectl get pod
+  259  kubectl get nodes 
+  260  kubectl get pod -o wide 
+  261  kubectl delete -f helloworld-ds.yaml 
+  262  kubectl create -f 11-Taint-and-Toleration/helloworld-ds.yaml 
+  263  kubectl get pod -o wide 
+  264  kubectl describe nodes | grep -i taint 
+  265  vim 11-Taint-and-Toleration/helloworld-ds.yaml 
+  266  ls
+  267  rm -rf helloworld-ds.yaml 
+  268  ls
+  269  cd 11-Taint-and-Toleration/
+  270  ls
+  271  history > History.txt
+  272  ls
+  273  cd ..
+  274  ls
+  275  cd ..
+  276  ls
+  277  git add . ; git commit -m "11-Taint-and-Toleration"; git push 
+  278  ls
+  279  cd 07-Kubernetes/
+  280  ls
+  281  ll
+  282  ls
+  283  cd ..
+  284  l
+  285  git pull 
+  286  ls
+  287  cd 07-Kubernetes/
+  288  ls
+  289  vim 12-Affinity/helloworld.yaml 
+  290  ls
+  291  kubectl create -f 12-Affinity/helloworld.yaml 
+  292  kubectl get pods 
+  293  kubectl delete -f 11-Taint-and-Toleration/helloworld-ds.yaml 
+  294  kubectl get pods 
+  295  kubectl describe pod helloworld-deployment-b64578fb-m9xpw
+  296  ls
+  297  kubectl get nodes --show-labels
+  298  kubectl label nodes  worker1 env=prod
+  299  kubectl get pods 
+  300  kubectl label nodes  worker2 env=dev
+  301  kubectl get pods 
+  302  kubectl get pods -o wide 
+  303  kubectl scale --replicas=10 deploy helloworld-deployment
+  304  kubectl get pods -o wide 
+  305  kubectl scale --replicas=3 deploy helloworld-deployment
+  306  kubectl get pods -o wide 
+  307  vim 12-Affinity/helloworld-dev-prod.yaml 
+  308  kubectl create -f  12-Affinity/helloworld-dev-prod.yaml 
+  309  vim 12-Affinity/helloworld-dev-prod.yaml 
+  310  kubectl create -f  12-Affinity/helloworld-dev-prod.yaml 
+  311  kubectl get pods 
+  312  kubectl get pods -o wide 
+  313  cat 07-Labels/helloworld-v3.yaml 
+  314  ls
+  315  kubectl get pods 
+  316  kubectl delete -f 12-Affinity/
+  317  kubectl get nodes --show-labels
+  318  kubectl label nodes  worker1 env=dev
+  319  kubectl label nodes  worker1 env=dev --overwrite
+  320  kubectl label nodes  worker1 env=dev
+  321  kubectl get nodes --show-labels
+  322  kubectl create -f 12-Affinity/helloworld-dev-prod.yaml 
+  323  kubectl get pods 
+  324  kubectl get pods -o wide
+  325  kubectl label nodes  worker2 team=engineering-project1
+  326  kubectl get nodes --show-labels
+  327  kubectl get pods -o wide
+  328  kubectl scale --replicas=5 deploy helloworld-2-deploymen
+  329  kubectl scale --replicas=5 deploy helloworld-2-deployment
+  330  kubectl get pods -o wide
+  331  ls
+  332  kubectl delete -f 12-Affinity/helloworld-dev-prod.yaml 
+  333  vim 12-Affinity/helloworld-multi-affinity.yaml 
+  334  ls
+  335  kubectl create -f 12-Affinity/helloworld-multi-affinity.yaml 
+  336  kubectl get pods -o wide
+  337  kubectl scale --replicas=10 deploy helloworld-deployment
+  338  kubectl get pods -o wide
+  339  kubectl scale --replicas=15 deploy helloworld-deployment
+  340  kubectl get pods -o wide
+  341  vim 12-Affinity/helloworld-multi-affinity.yaml 
+  342  ls
+  343  kubectl get pods
+  344  kubectl get pods -o wide 
+  345  kubectl delete -f 12-Affinity/
+  346  ls
+  347  history > 12-Affinity/History.txt
+  348  ls
+  349  cd 12-Affinity/
+  350  ls
+  351  vim History.txt 
+  352  ls
+  353  cd ..
+  354  git add . ; git commit -m "12-Affinity"; git push 
+  355  ls
+  356  git pull
+  357  ls
+  358  cd 07-Kubernetes/
+  359  ls
+  360  cd 13-Pod-Affinity-and-Anti-Affinity/
+  361  ls
+  362  vim helloworld.yaml 
+  363  ls
+  364  kubectl create -f helloworld.yaml 
+  365  kubectl get pods -o wide 
+  366  kubectl describe nodes master | grep -i taint 
+  367  ls
+  368  cp -rf helloworld.yaml helloworld-2.yaml 
+  369  vim helloworld-2.yaml 
+  370  ls
+  371  vim helloworld-2.yaml 
+  372  ls
+  373  kubectl get deploy 
+  374  kubectl delete deploy pod-affinity-4
+  375  kubectl create -f helloworld-2.yaml 
+  376  kubectl get pods -o wide 
+  377  ls
+  378  kubectl delete -f helloworld.yaml 
+  379  cd ..
+  380  ls
+  381  kubectl get pods 
+  382  cd ../
+  383  git pull
+  384  ls
+  385  cd 07-Kubernetes/14-Taint-and-toleration-with-affinity/
+  386  ls
+  387  vim helloworld-affinity.yaml 
+  388  cat helloworld-affinity.yaml
+  389  kubectl create -f helloworld-affinity.yaml 
+  390  kubectl get pods 
+  391  kubectl get pods -o wide 
+  392  ls
+  393  vim helloworld-affinity-with-tolerations.yaml 
+  394  ls
+  395  kubectl get nodes --show-labels
+  396  kubectl label nodes worker1 team=engineering-project1
+  397  kubectl get nodes --show-labels
+  398  ls
+  399  kubectl get deploy 
+  400  kubectl scale --replicas=5 deploy helloworld-deployment
+  401  kubectl get pods -o wide 
+  402  ls
+  403  cat helloworld-affinity-with-tolerations.yaml 
+  404  kubectl taint node worker1 app=myapp:NoSchedule
+  405  ls
+  406  kubectl get pods -o wide 
+  407  kubectl scale --replicas=3 deploy helloworld-deployment
+  408  kubectl get pods -o wide 
+  409  kubectl scale --replicas=1 deploy helloworld-deployment
+  410  kubectl get pods -o wide 
+  411  kubectl scale --replicas=5 deploy helloworld-deployment
+  412  kubectl get pods -o wide 
+  413  kubectl create -f helloworld-affinity-with-tolerations.yaml 
+  414  kubectl get pods -o wide 
+  415  cd 
+  416  cd - 
+  417  ls
+  418  cd ..
+  419  ls
+  420  cd 05-Deployment/ls
+  421  cd 05-Deployment/
+  422  ls
+  423  kubectl get pods -o wide
+  424  kubectl create -f helloworld-v2.yaml 
+  425  kubectl get pods -o wide
+  426  ls
+  427  kubectl delete deploy --all
+  428  ls
+  429  cd ..
+  430  ls
+  431  cd ..
+  432  ls
+  433  git add . ; git commit -m "14-Taint-and-toleration-with-affinity"; git push 
+  434  ls
+  435  cd 07-Kubernetes/
+  436  ls
+  437  history > History.txt
