@@ -1,0 +1,20 @@
+    1  rm -rf build-plan 
+    2  terraform init 
+    3  terraform plan 
+    4  terraform plan -out build-plan
+    5  terraform apply "build-plan"
+    6  ls
+    7  cat terraform.tfstate 
+    8  ls
+    9  terraform plan --destroy -out destroy-plan
+   10  terraform apply "destroy-plan"
+   11  history 
+   12  terraform apply "build-plan"
+   13  ls
+   14  vim first-deployment.tf 
+   15  terraform show
+   16  terraform refresh
+   17  terraform show 
+   18  terraform apply 
+   19  ls
+   20  history > History.txt
