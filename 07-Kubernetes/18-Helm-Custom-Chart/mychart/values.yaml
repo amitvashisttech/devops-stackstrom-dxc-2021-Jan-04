@@ -5,7 +5,7 @@
 replicaCount: 3
 
 image:
-  repository: amitvashist7/k8s-demo
+  repository: amitvashist7/k8s-tiny-web
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "2"
@@ -37,7 +37,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 80
 
 ingress:
