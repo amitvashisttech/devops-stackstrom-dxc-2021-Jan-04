@@ -1,0 +1,146 @@
+    1  ls
+    2  git clone https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git
+    3  ls
+    4  cd devops-stackstrom-dxc-2021-Jan-04/
+    5  ls
+    6  mkdir 09-StackStorm
+    7  ls
+    8  cd 09-StackStorm/
+    9  ls
+   10  mkdir 00-Setup 
+   11  ls
+   12  cd 00-Setup/
+   13  ls
+   14  vim README.md
+   15  curl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password='redhat'
+   16  ps -ef | grep -i st2
+   17  netstat -tulnp 
+   18  cd /opt/stackstorm/
+   19  ls
+   20  cd /etc/st2/
+   21  ls
+   22  vi st2.conf 
+   23  ls
+   24  cd /var/log/
+   25  ls
+   26  cd st2/
+   27  ls
+   28  cd ..
+   29  cd .
+   30  cd 
+   31  st2 login st2admin -p redhat
+   32  cat .st2/config 
+   33  cat .st2/token-st2admin 
+   34  exit 
+   35  exit
+   36  ls
+   37  cd devops-stackstrom-dxc-2021-Jan-04/
+   38  ls
+   39  git config credential.helper store
+   40  git add . ; git commit -m "09-StackStorm"; git push 
+   41  exit
+   42  ls
+   43  exit
+   44  cat /etc/st2/htpasswd 
+   45  htpasswd /etc/st2/htpasswd st2admin
+   46  cat /etc/st2/htpasswd 
+   47  st2 login st2admin -p redhat@123
+   48  ls
+   49  history 
+   50  st2 pack
+   51  st2 pack list 
+   52  st2 pack list -j 
+   53  st2 pack list -y
+   54  st2 pack list 
+   55  st2 pack search aws
+   56  st2 pack install aws
+   57  st2 pack list 
+   58  st2 pack get core
+   59  st2 pack get aws
+   60  st2 pack get linux
+   61  st2 pack show linux 
+   62  st2 pack show terrafrom 
+   63  st2 pack show terraform 
+   64  st2 pack show xyz
+   65  st2 pack remove aws
+   66  st2 pack list 
+   67  ls
+   68  cd devops-stackstrom-dxc-2021-Jan-04/
+   69  ls
+   70  cd 09-StackStorm/
+   71  ls
+   72  mkdir 01-BasicCommands
+   73  cd 01-BasicCommands/
+   74  ls
+   75  history > History.txt
+   76  cd //
+   77  cd - 
+   78  cd ../../
+   79  git add . ; git commit -m "09-StackStorm"; git push 
+   80  ls
+   81  st2 action 
+   82  st2 action -h 
+   83  st2 action list 
+   84  st2 action list -p core 
+   85  st2 action list -p linux
+   86  st2 pack list 
+   87  st2 action list -p linux
+   88  st2 action list -p linux -j 
+   89  st2 action list -p linux -y
+   90  st2 action list -p core 
+   91  st2 action get core.remote
+   92  st2 action list -p core 
+   93  st2 action execute core.local 
+   94  st2 --version 
+   95  st2 action execute core.local cmd="st2 --version"
+   96  st2 execution get 600ab43a14ba83b8b21cb79e
+   97  st2 action execute core.local cmd="ip addr"
+   98  st2 execution get 600ab49c14ba83b8b21cb7a1
+   99  st2 run core.local cmd="ip addr"
+  100  st2 run core.local cmd="df -h"
+  101  st2 action execute core.local cmd="df -h"
+  102  st2 execution list 
+  103  st2 execution get 600ab43a14ba83b8b21cb79e
+  104  st2 execution get 600ab51614ba83b8b21cb7aa
+  105  st2 execution tail 600ab51614ba83b8b21cb7aa
+  106  ls
+  107  cd 09-StackStorm/
+  108  ls
+  109  mkdir 02-Actions
+  110  ls
+  111  ls -ltr /etc/sudoers.d/
+  112  st2 action execute core.local cmd="ls -ltr /etc/sudoers.d/"
+  113  st2 execution get 600ab88614ba83b8b21cb7b3
+  114  st2 action list -p core 
+  115  st2 action execute core.local_sudo cmd="ls -ltr /etc/sudoers.d/"
+  116  st2 action execute core.local_sudo cmd="whoami"
+  117  st2 run core.local_sudo cmd="whoami"
+  118  st2 run core.local cmd="whoami"
+  119  st2 run core.local cmd="whoami" hosts=localhost
+  120  st2 run core.remote cmd="whoami" hosts=localhost
+  121  st2 run core.remote cmd="ip addr " hosts=localhost
+  122  st2 run core.remote cmd="ip addr " hosts=172.31.0.102
+  123  st2 run core.remote cmd="ip addr " hosts=172.31.0.102 username=vagrant password=vagrant
+  124  st2 run core.remote cmd="which python3" hosts=172.31.0.102 username=vagrant password=vagrant
+  125  ls
+  126  history > 02-Actions/History.txt
+  127  ls
+  128  sudo su - 
+  129  exit
+  130  ls
+  131  vi /etc/st2/st2.conf 
+  132  st2ctl --help
+  133  st2ctl status 
+  134  st2ctl restart
+  135  st2 run core.remote cmd="whoami" hosts=localhost
+  136  st2 run core.local cmd="whoami" 
+  137  st2 run core.remote cmd="which python3" hosts=172.31.0.102
+  138  st2 run core.remote cmd="which python3" hosts=172.31.0.102,172.31.0.101
+  139  st2 run core.remote cmd="ls -ltr /etc/sudoers.d/" hosts=172.31.0.102,172.31.0.101
+  140  st2 run core.remote_sudo cmd="ls -ltr /etc/sudoers.d/" hosts=172.31.0.102,172.31.0.101
+  141  ls
+  142  cd devops-stackstrom-dxc-2021-Jan-04/
+  143  ls
+  144  cd 09-StackStorm/
+  145  ls
+  146  history > 02-Actions/History.txt
