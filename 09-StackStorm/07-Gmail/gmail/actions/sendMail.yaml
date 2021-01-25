@@ -1,0 +1,19 @@
+---
+name: sendMail 
+runner_type: local-shell-script
+enabled: true
+entry_point: "sendMail.sh"
+description: Simple Action to Send Mail 
+parameters:
+    Body:
+      type: string
+      required: true
+      position: 0 
+    Subject:
+      type: string
+      required: true
+      position: 1 
+    ToMail:
+      type: string
+      required: true
+      position: 2 

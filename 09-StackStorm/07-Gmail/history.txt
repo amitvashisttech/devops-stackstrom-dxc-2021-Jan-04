@@ -1,0 +1,619 @@
+    1  ls
+    2  git clone https://github.com/amitvashisttech/devops-stackstrom-dxc-2021-Jan-04.git
+    3  ls
+    4  cd devops-stackstrom-dxc-2021-Jan-04/
+    5  ls
+    6  mkdir 09-StackStorm
+    7  ls
+    8  cd 09-StackStorm/
+    9  ls
+   10  mkdir 00-Setup 
+   11  ls
+   12  cd 00-Setup/
+   13  ls
+   14  vim README.md
+   15  curl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password='redhat'
+   16  ps -ef | grep -i st2
+   17  netstat -tulnp 
+   18  cd /opt/stackstorm/
+   19  ls
+   20  cd /etc/st2/
+   21  ls
+   22  vi st2.conf 
+   23  ls
+   24  cd /var/log/
+   25  ls
+   26  cd st2/
+   27  ls
+   28  cd ..
+   29  cd .
+   30  cd 
+   31  st2 login st2admin -p redhat
+   32  cat .st2/config 
+   33  cat .st2/token-st2admin 
+   34  exit 
+   35  exit
+   36  ls
+   37  cd devops-stackstrom-dxc-2021-Jan-04/
+   38  ls
+   39  git config credential.helper store
+   40  git add . ; git commit -m "09-StackStorm"; git push 
+   41  exit
+   42  ls
+   43  exit
+   44  cat /etc/st2/htpasswd 
+   45  htpasswd /etc/st2/htpasswd st2admin
+   46  cat /etc/st2/htpasswd 
+   47  st2 login st2admin -p redhat@123
+   48  ls
+   49  history 
+   50  st2 pack
+   51  st2 pack list 
+   52  st2 pack list -j 
+   53  st2 pack list -y
+   54  st2 pack list 
+   55  st2 pack search aws
+   56  st2 pack install aws
+   57  st2 pack list 
+   58  st2 pack get core
+   59  st2 pack get aws
+   60  st2 pack get linux
+   61  st2 pack show linux 
+   62  st2 pack show terrafrom 
+   63  st2 pack show terraform 
+   64  st2 pack show xyz
+   65  st2 pack remove aws
+   66  st2 pack list 
+   67  ls
+   68  cd devops-stackstrom-dxc-2021-Jan-04/
+   69  ls
+   70  cd 09-StackStorm/
+   71  ls
+   72  mkdir 01-BasicCommands
+   73  cd 01-BasicCommands/
+   74  ls
+   75  history > History.txt
+   76  cd //
+   77  cd - 
+   78  cd ../../
+   79  git add . ; git commit -m "09-StackStorm"; git push 
+   80  ls
+   81  st2 action 
+   82  st2 action -h 
+   83  st2 action list 
+   84  st2 action list -p core 
+   85  st2 action list -p linux
+   86  st2 pack list 
+   87  st2 action list -p linux
+   88  st2 action list -p linux -j 
+   89  st2 action list -p linux -y
+   90  st2 action list -p core 
+   91  st2 action get core.remote
+   92  st2 action list -p core 
+   93  st2 action execute core.local 
+   94  st2 --version 
+   95  st2 action execute core.local cmd="st2 --version"
+   96  st2 execution get 600ab43a14ba83b8b21cb79e
+   97  st2 action execute core.local cmd="ip addr"
+   98  st2 execution get 600ab49c14ba83b8b21cb7a1
+   99  st2 run core.local cmd="ip addr"
+  100  st2 run core.local cmd="df -h"
+  101  st2 action execute core.local cmd="df -h"
+  102  st2 execution list 
+  103  st2 execution get 600ab43a14ba83b8b21cb79e
+  104  st2 execution get 600ab51614ba83b8b21cb7aa
+  105  st2 execution tail 600ab51614ba83b8b21cb7aa
+  106  ls
+  107  cd 09-StackStorm/
+  108  ls
+  109  mkdir 02-Actions
+  110  ls
+  111  ls -ltr /etc/sudoers.d/
+  112  st2 action execute core.local cmd="ls -ltr /etc/sudoers.d/"
+  113  st2 execution get 600ab88614ba83b8b21cb7b3
+  114  st2 action list -p core 
+  115  st2 action execute core.local_sudo cmd="ls -ltr /etc/sudoers.d/"
+  116  st2 action execute core.local_sudo cmd="whoami"
+  117  st2 run core.local_sudo cmd="whoami"
+  118  st2 run core.local cmd="whoami"
+  119  st2 run core.local cmd="whoami" hosts=localhost
+  120  st2 run core.remote cmd="whoami" hosts=localhost
+  121  st2 run core.remote cmd="ip addr " hosts=localhost
+  122  st2 run core.remote cmd="ip addr " hosts=172.31.0.102
+  123  st2 run core.remote cmd="ip addr " hosts=172.31.0.102 username=vagrant password=vagrant
+  124  st2 run core.remote cmd="which python3" hosts=172.31.0.102 username=vagrant password=vagrant
+  125  ls
+  126  history > 02-Actions/History.txt
+  127  ls
+  128  sudo su - 
+  129  exit
+  130  ls
+  131  vi /etc/st2/st2.conf 
+  132  st2ctl --help
+  133  st2ctl status 
+  134  st2ctl restart
+  135  st2 run core.remote cmd="whoami" hosts=localhost
+  136  st2 run core.local cmd="whoami" 
+  137  st2 run core.remote cmd="which python3" hosts=172.31.0.102
+  138  st2 run core.remote cmd="which python3" hosts=172.31.0.102,172.31.0.101
+  139  st2 run core.remote cmd="ls -ltr /etc/sudoers.d/" hosts=172.31.0.102,172.31.0.101
+  140  st2 run core.remote_sudo cmd="ls -ltr /etc/sudoers.d/" hosts=172.31.0.102,172.31.0.101
+  141  ls
+  142  cd devops-stackstrom-dxc-2021-Jan-04/
+  143  ls
+  144  cd 09-StackStorm/
+  145  ls
+  146  history > 02-Actions/History.txt
+  147  ls
+  148  cd ..
+  149  ls
+  150  ll
+  151  st2 apikey create -k -m '{"used_by": "my integration"}' 
+  152  ls
+  153  cd 09-StackStorm/
+  154  ls
+  155  history 
+  156  mkdir 03-API-AUTH
+  157  vim 03-API-AUTH/README.md
+  158  ls
+  159  cd ..
+  160  ls
+  161  git add . ; git commit -m "03-API-AUTH"; git push 
+  162  ls
+  163  cd devops-stackstrom-dxc-2021-Jan-04/
+  164  ls
+  165  cd 09-StackStorm/
+  166  ls
+  167  cd ..
+  168  ls
+  169  git pull 
+  170  ls
+  171  cd 09-StackStorm/
+  172  ls
+  173  mkdir 04-DummyPack
+  174  ls
+  175  cd 04-DummyPack/
+  176  ls
+  177  cd /opt/stackstorm/
+  178  ls
+  179  cd packs/
+  180  ls
+  181  cd core/
+  182  ls
+  183  ll
+  184  cd actions/
+  185  ls
+  186  cd 
+  187  cd devops-stackstrom-dxc-2021-Jan-04/
+  188  ls
+  189  cd 09-StackStorm/
+  190  ls
+  191  cd 04-DummyPack/
+  192  ls
+  193  mkdir dummy 
+  194  cd dummy/
+  195  ls
+  196  vim pack.yaml
+  197  ls
+  198  cat pack.yaml 
+  199  st2 pack list 
+  200  st2 pack install file:///~/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/04-DummyPack/dummy
+  201  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/04-DummyPack/dummy
+  202  st2 pack list 
+  203  st2 action list -p dummy
+  204  cd ..
+  205  sl
+  206  ls
+  207  cd ..
+  208  ls
+  209  cd ..
+  210  ls
+  211  git add . ; git commit -m "Dummy Pack"
+  212  git add . ; git commit -m "Dummy Pack" ; git push 
+  213  ls
+  214  cd 09-StackStorm/
+  215  ls
+  216  mkdir 05-Actions
+  217  ls
+  218  cd 05-Actions/
+  219  ls
+  220  mkdir math
+  221  ls
+  222  cd math/
+  223  ls
+  224  cp -rf ../../04-DummyPack/dummy/pack.yaml .
+  225  ls
+  226  vim pack.yaml 
+  227  ls
+  228  mkdir actions 
+  229  ls
+  230  cd actions/
+  231  ls
+  232  vim add.yaml
+  233  ls
+  234  vim add.sh
+  235  ls
+  236  chmod +x add.sh 
+  237  ./add.sh 
+  238  ./add.sh 5
+  239  ./add.sh 5 7
+  240  cd ..
+  241  ls
+  242  cd ..
+  243  ls
+  244  pwd
+  245  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/05-Actions/math/
+  246  ls
+  247  st2 pack list 
+  248  st2 action list -p math
+  249  st2 run math.add
+  250  st2 run math.add 5 7
+  251  st2 run math.add num1=5 num2=7
+  252  st2 run math.add num1=15 num2=7
+  253  ls
+  254  cd math/
+  255  ls
+  256  cd actions/
+  257  ls
+  258  cp -rf add.yaml sub.yaml
+  259  ls
+  260  cp -rf add.sh sub.sh
+  261  ls
+  262  vim sub.sh 
+  263  vim sub.yaml 
+  264  ls
+  265  cd ..
+  266  ls
+  267  cd ..
+  268  ls
+  269  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/05-Actions/math/
+  270  st2 pack list 
+  271  st2 action list -p math
+  272  st2 run math.add 
+  273  st2 run math.add num2=5
+  274  st2 run math.add num2=5 num1=21
+  275  st2 run math.sub num2=5 num1=21
+  276  ls
+  277  cd math/
+  278  ls
+  279  cat pack.yaml 
+  280  ls
+  281  cd actions/
+  282  ls
+  283  cat add.yaml 
+  284  ls
+  285  mv add.sh add-1.sh
+  286  ls
+  287  vim add.yaml 
+  288  ls
+  289  cd ..
+  290  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/05-Actions/math/
+  291  st2 run math.add num2=5 num1=21
+  292  st2 run math.add num2=7 num1=21
+  293  ls
+  294  cd ..
+  295  ls
+  296  git add . ; git commit -m "Math Pack - Shell Script" ; git push 
+  297  ls
+  298  cd /opt/stackstorm/packs/
+  299  ls
+  300  cd linux/
+  301  ls
+  302  ll
+  303  cat requirements.txt 
+  304  ls
+  305  cat README.md 
+  306  ls
+  307  cd sensors/
+  308  ls
+  309  cat file_watch_sensor.yaml 
+  310  cat README.md 
+  311  ls
+  312  cd ..
+  313  ls
+  314  cd sensors/
+  315  ls
+  316  cat file_watch_sensor.py
+  317  ls
+  318  cd ..
+  319  ls
+  320  cd tests/
+  321  ls
+  322  cat test_action_dig.py 
+  323  ls
+  324  cd ..
+  325  ls
+  326  cd ..
+  327  ls
+  328  cd core/
+  329  ls
+  330  cd sensors/
+  331  ls
+  332  cat README.md 
+  333  ls
+  334  cd ..
+  335  s
+  336  ls
+  337  cd ..
+  338  l
+  339  cd chatops/
+  340  ls
+  341  cd rules/
+  342  ls
+  343  vim notify_hubot.yaml 
+  344  ls
+  345  cd ..
+  346  ls
+  347  cd actions/
+  348  ls
+  349  cd workflows/
+  350  ls
+  351  cat run.yaml 
+  352  cd 
+  353  ls
+  354  cd devops-stackstrom-dxc-2021-Jan-04/
+  355  ls
+  356  cd 08-Terraform/
+  357  cd ..
+  358  ls
+  359  cd 09-StackStorm/
+  360  ls
+  361  cd 05-Actions/
+  362  ls
+  363  mkdir mathj
+  364  ls
+  365  cd mathj/
+  366  ls
+  367  cp -rf ../math/pack.yaml . 
+  368  ls
+  369  vim pack.yaml 
+  370  ls
+  371  mkdir actions
+  372  ls
+  373  cd actions/
+  374  ls
+  375  vim add.yaml
+  376  ls
+  377  cd ..
+  378  pwd
+  379  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/05-Actions/mathj
+  380  ls
+  381  vim actions/add.yaml 
+  382  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/05-Actions/mathj
+  383  ls
+  384  vim pack.yaml 
+  385  ls
+  386  cd actions/
+  387  ls
+  388  vim add.yaml 
+  389  cd ..
+  390  ls
+  391  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/05-Actions/mathj
+  392  st2 pack list 
+  393  st2 action list  -p mathj
+  394  st2 run mathj.add
+  395  st2 run mathj.add num2=10
+  396  st2 run mathj.add num2=10 num1=12
+  397  ls
+  398  cd actions/
+  399  ls
+  400  cp -rf add.yaml sub.yaml
+  401  ls
+  402  vim sub.yaml 
+  403  ls
+  404  cd ..
+  405  ls
+  406  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/05-Actions/mathj
+  407  st2 action list  -p mathj
+  408  st2 run mathj.sub num2=10 num1=12
+  409  ls
+  410  vim actions/sub.yaml 
+  411  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/05-Actions/mathj
+  412  st2 run mathj.sub num2=10 num1=15
+  413  ls
+  414  cd ..
+  415  sl
+  416  cd ..
+  417  ls
+  418  git add . ; git commit -m "Math J2 Format" ; git push 
+  419  ls
+  420  cd /opt/stackstorm/
+  421  ls
+  422  cd packs/
+  423  ls
+  424  ip addr 
+  425  cd 
+  426  touch /tmp/amit-test.txt
+  427  l
+  428  scd devops-stackstrom-dxc-2021-Jan-04/
+  429  ls
+  430  cd devops-stackstrom-dxc-2021-Jan-04/
+  431  ls
+  432  cd 09-StackStorm/
+  433  ls
+  434  mkdir 06-Remote
+  435  ls
+  436  cd 06-Remote/
+  437  ls
+  438  mkdir remote 
+  439  ls
+  440  cp -rf ../05-Actions/math/pack.yaml  . 
+  441  ls
+  442  mv pack.yaml remote/
+  443  cd remote/
+  444  ls
+  445  vim pack.yaml 
+  446  ls
+  447  mkdir actions
+  448  ls
+  449  cd actions/
+  450  ls
+  451  vim uname.yaml
+  452  ls
+  453  cp -rf ../../../05-Actions/mathj/actions/add.yaml . 
+  454  ls
+  455  cp -rf add.yaml uname.yaml 
+  456  rm -rf add.yaml 
+  457  ls
+  458  vim uname.yaml 
+  459  ls
+  460  cd ..
+  461  ls
+  462  cd ..
+  463  ls
+  464  cd remote/
+  465  pwd
+  466  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/06-Remote/remote
+  467  st2 action list -p remote 
+  468  st2 run remote.uname 
+  469  st2 run remote.uname cmd="
+  470  st2 run remote.uname cmd="ip addr"
+  471  vim actions/uname.yaml 
+  472  st2 run remote.uname cmd="netstat"
+  473  st2 run remote.uname 
+  474  vim actions/uname.yaml 
+  475  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/06-Remote/remote
+  476  st2 run remote.uname 
+  477  st2 run remote.uname cmd="netstat"
+  478  vim actions/uname.yaml 
+  479  st2 run remote.uname 
+  480  st2 run remote.uname cmd="netstat"
+  481  ls
+  482  cat /etc/os-release 
+  483  cat /etc/*-release 
+  484  cat /etc/*-release | grep -w "NAME"
+  485  cat /etc/*-release | grep -w "NAME"| cut -d= -f2
+  486  ls
+  487  cd actions/
+  488  ls
+  489  cp -rf uname.yaml osname.yaml
+  490  vim osname.yaml 
+  491  ls
+  492  cd ..
+  493  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/06-Remote/remote
+  494  st2 run remote.osname 
+  495  st2 run remote.osname cmd="ip addr"
+  496  uname -r 
+  497  ls
+  498  cd actions/
+  499  ls
+  500  cp -rf osname.yaml krelease.yaml
+  501  vim krelease.yaml 
+  502  ls
+  503  cd ..
+  504  ls
+  505  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/06-Remote/remote
+  506  ls
+  507  st2 run remote.krelease
+  508  st2 run remote.krelease hosts=172.31.0.101,172.31.0.102
+  509  st2 run remote.krelease 
+  510  ls
+  511  cd actions/
+  512  ls
+  513  cp -rf ../../../05-Actions/math/actions/add.yaml . 
+  514  ls
+  515  mv add.yaml installpkg.yaml
+  516  ls
+  517  vim installpkg.yaml 
+  518  ls
+  519  cat /etc/*release 
+  520  cat /etc/*release | grep -w "ID"
+  521  cat /etc/*release | grep -w "ID"| cut -d= -f2
+  522  cat /etc/*release | grep -w "ID"| cut -d= -f2|tr -d'"'
+  523  cat /etc/*release | grep -w "ID"| cut -d= -f2
+  524  ls
+  525  vim installpkg.sh
+  526  ls
+  527  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/06-Remote/remote
+  528  st2 pack list 
+  529  st2 action list -p remote
+  530  st2 run remote.installpkg
+  531  st2 run remote.installpkg pkg="vim"
+  532  st2 run remote.installpkg pkg=vim
+  533  ls
+  534  vim installpkg.yaml 
+  535  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/06-Remote/remote
+  536  st2 run remote.installpkg pkg=vim
+  537  ls
+  538  vim installpkg.sh 
+  539  ls
+  540  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/06-Remote/remote
+  541  st2 run remote.installpkg pkg=vim
+  542  ls
+  543  cd ..
+  544  ls
+  545  cd ..
+  546  ls
+  547  cd ..
+  548  ls
+  549  cd ..
+  550  ls
+  551  git add . ; git commit -m "06-Remote" ; git push 
+  552  ls
+  553  cd 09-StackStorm/
+  554  ls
+  555  mkdir 07-Gmail
+  556  ls
+  557  cd 07-Gmail/
+  558  ls
+  559  vim README.md
+  560  l
+  561  ls
+  562  cat README.md 
+  563  cd 
+  564  ls
+  565  apt-get update -y ; apt-get install sendmail mailutils -y ; cd /etc/mail ; mkdir -m 700 authinfo; cd authinfo/
+  566  ls
+  567  vim gmail
+  568  ls
+  569  makemap hash gmail < gmail
+  570  ls
+  571  cat gmail.db 
+  572  ls
+  573  cd ..
+  574  ls
+  575  vim sendmail.mc 
+  576  make
+  577  /etc/init.d/sendmail reload
+  578  echo "Demo" | mail -s "Status of Httpd" amitvashist7@gmail.com
+  579  echo "Welcome to St2 Mail" | mail -s "Status of Httpd" amitvashist7@gmail.com
+  580  ls
+  581  cd 
+  582  ls
+  583  cd devops-stackstrom-dxc-2021-Jan-04/
+  584  ls
+  585  cd 09-StackStorm/
+  586  ls
+  587  cd 07-Gmail/
+  588  ls
+  589  mkdir gmail
+  590  ls
+  591  cd gmail/
+  592  ls
+  593  cp -rf ../../06-Remote/remote/pack.yaml . 
+  594  cp -rf ../../06-Remote/remote/actions . 
+  595  ls
+  596  vim pack.yaml 
+  597  ls
+  598  cd actions/
+  599  ls
+  600  rm krelease.yaml osname.yaml uname.yaml 
+  601  ls
+  602  mv installpkg.sh  sendMail.sh
+  603  ls
+  604  mv installpkg.yaml sendMail.yaml
+  605  ls
+  606  vim sendMail.yaml 
+  607  ls
+  608  st2 pack install file:///root/devops-stackstrom-dxc-2021-Jan-04/09-StackStorm/07-Gmail/gmail
+  609  st2 action list -p gmail
+  610  st2 run gmail.sendMail
+  611  st2 run gmail.sendMail "Welcome to Gmail Pack" 
+  612  st2 run gmail.sendMail "Welcome to Gmail Pack" "Test" "amitvashist7@gmail.com"
+  613  st2 run gmail.sendMail Body="Welcome to Gmail Pack" Subject="Test" ToMail="amitvashist7@gmail.com"
+  614  ls
+  615  cd ..
+  616  ls
+  617  cd ..
+  618  ls
+  619  history > history.txt
