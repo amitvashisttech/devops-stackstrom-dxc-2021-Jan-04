@@ -1,5 +1,5 @@
 # Setting Up Local MailServer to Relay Mail to Gmail
-
+```
 Steps:
  step1: Get Gmail Id and Password
  Step2: login into ubuntu and switch to root using: sudo su -
@@ -38,3 +38,4 @@ Step8: Now open https://www.google.com/settings/security/lesssecureapps
        and Allow less secure apps: ON
 Step9: Verify the test mail using
 	echo "Demo" | mail -s "Status of Httpd" dowithscripting@gmail.com
+```
