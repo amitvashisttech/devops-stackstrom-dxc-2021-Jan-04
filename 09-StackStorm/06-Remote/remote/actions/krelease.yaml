@@ -1,0 +1,11 @@
+---
+name: krelease
+runner_type: local-shell-cmd
+enabled: true 
+entry_point: ""
+description: This action is used to find the Kernel Release of remote server(s)
+parameters:
+    cmd: 
+      type: string
+      default: uname -r
+      immutable: true

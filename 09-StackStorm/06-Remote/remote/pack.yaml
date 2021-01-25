@@ -1,0 +1,21 @@
+---
+ref: remote
+name: remote
+description: This pack is used to find the add & sub of two numbers.  
+keywords:
+    - osname
+    - uname
+    - pkg
+
+version: 3.3.0
+python_versions:
+  - "2"
+  - "3"
+
+#dependencies:
+#  - core
+author: Amit Vashist
+email: amitvashist7@outlook.com
+contributors:
+  - "John Doe1 <john.doe1@gmail.com>"
+  - "John Doe2 <john.doe2@gmail.com>"
